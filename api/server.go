@@ -2,9 +2,13 @@ package api
 
 import (
 	"DATN/configs"
-	"DATN/infrastructure"
+	"DATN/repository"
+	nguoiDung "DATN/repository/nguoi_dung"
+	"DATN/service"
+	"fmt"
 	"log"
 	"net/http"
+	"time"
 )
 
 type Server struct {
@@ -19,14 +23,28 @@ func New(cfg *configs.Server) *Server {
 
 func (s *Server) Start() error {
 
-	db, err := infrastructure.NewDBHandle(s.cfg.Database, "localhost")
+	db, err := repository.NewDBHandle(s.cfg.Database, "localhost")
 	if err != nil {
 		log.Println(err)
 		return err
 	}
-	err = db.Exec()
+	userRepo := nguoiDung.NewSQLNguoiDung(db)
+	//dbSanPham := sanPham.NewSQLSanPham(db)
+	//err = userRepo.Login("admin", "123456123")
+	//if err != nil {
+	//	return err
+	//}
+	userService := service.NewUserService(userRepo)
+	//_ = service.NewUserService(userRepo)
+
+	err = userService.Register("Duc Xuan", "mrsad9x", "123456", "0375686987", 1, 1, 1)
 	if err != nil {
-		log.Println(err)
+		return err
+	}
+	time.Sleep(5 * time.Second)
+	err = userService.Login("mrsad9x", "123456")
+	if err != nil {
+		fmt.Println("login fail")
 	}
 	//err = http.ListenAndServe(model.PortConn, nil)
 	//if err != nil {

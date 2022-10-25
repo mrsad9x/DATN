@@ -6,7 +6,7 @@ type NguoiDung struct {
 	taiKhoan      string
 	matKhau       string
 	soDT          int
-	trangThai     rune
-	role          rune
-	chiSoTiemNang rune
+	trangThai     int
+	role          int
+	chiSoTiemNang int
 }

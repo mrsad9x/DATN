@@ -1,6 +1,6 @@
 package model
 
-type Order struct {
+type DonHang struct {
 	id           int
 	id_nguoiDung int
 	id_sanPham   int

@@ -1,4 +1,4 @@
-package infrastructure
+package repository
 
 import (
 	"DATN/configs"
@@ -8,20 +8,13 @@ import (
 	"log"
 )
 
-type mysql struct {
+type Mysql struct {
 	config *configs.Database
 	client *sql.DB
 }
 
-//func NewDB(cfg configs.Database) IDatabase {
-//
-//	return &mysql{
-//		config: &cfg,
-//		client: new(sql.DB),
-//	}
-//}
 func NewDBHandle(cfg configs.Database, host string) (IDatabase, error) {
-	myclient := &mysql{
+	myclient := &Mysql{
 		config: &cfg,
 	}
 	svdb, err := myclient.init(host)
@@ -32,7 +25,7 @@ func NewDBHandle(cfg configs.Database, host string) (IDatabase, error) {
 	myclient.client = svdb
 	return myclient, nil
 }
-func (c *mysql) init(host string) (*sql.DB, error) {
+func (c *Mysql) init(host string) (*sql.DB, error) {
 	connectInfo := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", c.config.UserName, c.config.Password, host, c.config.Port, c.config.DBName)
 	client, err := sql.Open(c.config.Driver, connectInfo)
 	if err != nil {
@@ -47,8 +40,8 @@ func (c *mysql) init(host string) (*sql.DB, error) {
 	return client, nil
 }
 
-func (c *mysql) Exec() error {
-	queryString := "Select * From demo where QAS is not null "
+func (c *Mysql) Exec(queryString string) error {
+
 	data, err := c.client.Query(queryString)
 	if err != nil {
 		log.Println(err)
@@ -59,4 +52,12 @@ func (c *mysql) Exec() error {
 	//}
 	fmt.Println(data)
 	return nil
+}
+
+func (c *Mysql) QueryRow(queryString string) (*sql.Rows, error) {
+	data, err := c.client.Query(queryString)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
 }
