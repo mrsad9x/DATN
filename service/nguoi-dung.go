@@ -2,6 +2,7 @@ package service
 
 import (
 	"DATN/repository"
+	"fmt"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -9,15 +10,22 @@ type UserService struct {
 	UserRepo repository.INguoiDungDB
 }
 
-func NewUserService(repo repository.INguoiDungDB) IUser {
+func NewUserService(repo repository.INguoiDungDB) IUserService {
 	return UserService{UserRepo: repo}
 }
-func (c UserService) Register(ten, taiKhoan, matKhau, sdt string, status, role, chiSoTN int) error {
+func (c UserService) Register(ten, taiKhoan, matKhau, sdt, email, diaChi string, status, role, chiSoTN int) error {
+	exist, check := c.UserRepo.CheckExist(taiKhoan, email)
+	if exist && check == 1 {
+		return fmt.Errorf("user name existed")
+	}
+	if exist && check == 2 {
+		return fmt.Errorf("email existed")
+	}
 	pass, err := hashPassword(matKhau)
 	if err != nil {
 		return err
 	}
-	err = c.UserRepo.Register(ten, taiKhoan, pass, sdt, status, role, chiSoTN)
+	err = c.UserRepo.Register(ten, taiKhoan, pass, sdt, email, diaChi, status, role, chiSoTN)
 	if err != nil {
 		return err
 	}
@@ -25,9 +33,13 @@ func (c UserService) Register(ten, taiKhoan, matKhau, sdt string, status, role, 
 }
 
 func (c UserService) Login(taiKhoan, matKhau string) error {
-	pass, err := c.UserRepo.Login(taiKhoan)
+	passHash, err := c.UserRepo.Login(taiKhoan)
 	if err != nil {
 		return err
+	}
+	result := checkPassword(matKhau, passHash)
+	if result {
+		fmt.Println("true")
 	}
 	return nil
 }

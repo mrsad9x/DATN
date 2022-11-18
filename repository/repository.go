@@ -5,12 +5,13 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/jmoiron/sqlx"
 	"log"
 )
 
 type Mysql struct {
 	config *configs.Database
-	client *sql.DB
+	client *sqlx.DB
 }
 
 func NewDBHandle(cfg configs.Database, host string) (IDatabase, error) {
@@ -25,9 +26,9 @@ func NewDBHandle(cfg configs.Database, host string) (IDatabase, error) {
 	myclient.client = svdb
 	return myclient, nil
 }
-func (c *Mysql) init(host string) (*sql.DB, error) {
+func (c *Mysql) init(host string) (*sqlx.DB, error) {
 	connectInfo := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", c.config.UserName, c.config.Password, host, c.config.Port, c.config.DBName)
-	client, err := sql.Open(c.config.Driver, connectInfo)
+	client, err := sqlx.Open(c.config.Driver, connectInfo)
 	if err != nil {
 		log.Println("Error: ", err.Error())
 		return nil, err
@@ -42,19 +43,23 @@ func (c *Mysql) init(host string) (*sql.DB, error) {
 
 func (c *Mysql) Exec(queryString string) error {
 
-	data, err := c.client.Query(queryString)
+	_, err := c.client.Exec(queryString)
 	if err != nil {
 		log.Println(err)
 		return err
 	}
-	//for data.Next() {
-	//	log.Println(data.Scan())
-	//}
-	fmt.Println(data)
 	return nil
 }
 
-func (c *Mysql) QueryRow(queryString string) (*sql.Rows, error) {
+func (c *Mysql) QueryOneRow(queryString string) (*sqlx.Rows, error) {
+	data, err := c.client.Queryx(queryString)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
+}
+
+func (c *Mysql) Query(queryString string) (*sql.Rows, error) {
 	data, err := c.client.Query(queryString)
 	if err != nil {
 		return nil, err
