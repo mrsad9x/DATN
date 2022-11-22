@@ -1,6 +1,7 @@
 package repository
 
 import (
+	"DATN/model"
 	"database/sql"
 	"github.com/jmoiron/sqlx"
 )
@@ -18,5 +19,6 @@ type INguoiDungDB interface {
 }
 
 type ISanPham interface {
-	GetAllProduct()
+	GetAllProduct() ([]model.SanPham, error)
+	GetOneProduct(id int) (model.SanPham, error)
 }

@@ -30,17 +30,25 @@ func (s *Server) Start() error {
 		log.Println(err)
 		return err
 	}
+
 	err = s.route.SetTrustedProxies(nil)
+
 	userRepo := repository.NewSQLNguoiDung(db)
 	userService := service.NewUserService(userRepo)
 	userController := controller.NewUserController(userService)
 	userController.SetRouterUserController(s.route)
+
+	prodRepo := repository.NewSQLSanPham(db)
+	prodService := service.NewProducService(prodRepo)
+	prodController := controller.NewProductController(prodService)
+	prodController.SetRouterSanPhamController(s.route)
 
 	s.route.Use(cors.Default())
 	err = s.route.Run(fmt.Sprintf(":%s", port))
 	if err != nil {
 		return err
 	}
+
 	//err = userService.Register("Duc Xuan", "mrsad9x", "123456", "0375686987", "mr.sad.9x@gmail.com", "", 1, 1, 1)
 	//if err != nil {
 	//	fmt.Println(err.Error())
