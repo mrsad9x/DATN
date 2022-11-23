@@ -1,0 +1,14 @@
+<html>
+	<title>
+		{{ .title }}
+	</title>
+
+    List:
+        {{ range $key, $value := .listProduct }}
+                {{ $key }}
+                ID: {{ $value.Id }}
+                Name: {{ $value.TenSP }},
+                Gia ban: {{ $value.GiaBan }},
+                Mo ta: {{ $value.MoTaSP }}
+        {{ end }}
+</html>

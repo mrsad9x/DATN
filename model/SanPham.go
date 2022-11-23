@@ -8,4 +8,5 @@ type SanPham struct {
 	GiaNhap     float64 `db:"giaNhap"`
 	SoLuong     int     `db:"soLuong"`
 	MoTaSP      string  `db:"moTaSP"`
+	Status      int     `db:"status"`
 }

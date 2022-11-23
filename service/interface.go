@@ -10,4 +10,9 @@ type IUserService interface {
 type IProductService interface {
 	GetAllProduct() ([]model.SanPham, error)
 	GetOneProduct(id int) (model.SanPham, error)
+	GetListProductWithCategories(id int) ([]model.SanPham, error)
+	SearchProduct(name string) ([]model.SanPham, error)
+	CreateNewProduct(idDM int, tenSP string, giaBan, giaNhap float64, soLuong int, mota string, status int) error
+	AlterProduct(id, idDM int, tenSP string, giaBan, giaNhap float64, soLuong int, mota string) error
+	DeleteSoftProduct(id int) error
 }

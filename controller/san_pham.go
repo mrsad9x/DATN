@@ -18,8 +18,18 @@ func NewProductController(productController service.IProductService) ISanPhamCon
 }
 
 func (p ProductController) SetRouterSanPhamController(router *gin.Engine) *gin.Engine {
+
 	router.GET("/getall", p.GetAllProduct)
-	router.GET("/getproduct/:id", p.GetOneProduct)
+	router.GET("/product/:id", p.GetOneProduct)
+	router.GET("/categories/:id", p.GetListProduct)
+	router.GET("/search/:name", p.SearchProduct)
+
+	r := router.Group("/admin")
+	{
+		r.POST("/createproduct", p.CreateNewProduct)
+		r.PUT("/alterproduct", p.AlterProduct)
+		r.PUT("/deletesoftprod", p.DeleteSoftProduct)
+	}
 	return router
 }
 
@@ -27,11 +37,15 @@ func (p ProductController) GetAllProduct(c *gin.Context) {
 	listProduct, err := p.PController.GetAllProduct()
 	if err != nil {
 		c.JSONP(400, gin.H{
-			"error": err,
+			"title": err,
 		})
 	} else {
-		c.JSONP(200, gin.H{
-			"list": listProduct,
+		//c.JSONP(200, gin.H{
+		//	"list": listProduct,
+		//})
+		c.HTML(200, "index.html", gin.H{
+			"title":       "test",
+			"listProduct": listProduct,
 		})
 	}
 }
@@ -49,5 +63,84 @@ func (p ProductController) GetOneProduct(c *gin.Context) {
 }
 
 func (p ProductController) GetListProduct(c *gin.Context) {
+	idDanhMuc, _ := strconv.Atoi(c.Param("id"))
+	listProduct, err := p.PController.GetListProductWithCategories(idDanhMuc)
+	if err != nil {
+		c.JSONP(400, gin.H{
+			"error": err,
+		})
+	} else {
+		c.JSONP(200, gin.H{
+			"list": listProduct,
+		})
+	}
+}
 
+func (p ProductController) SearchProduct(c *gin.Context) {
+	nameSearch := c.Param("name")
+	listProduct, err := p.PController.SearchProduct(nameSearch)
+	if err != nil {
+		c.JSONP(400, gin.H{
+			"error": err,
+		})
+	} else {
+		c.JSONP(200, gin.H{
+			"list": listProduct,
+		})
+	}
+}
+
+func (p ProductController) CreateNewProduct(c *gin.Context) {
+	idDanhMuc, _ := strconv.Atoi(c.PostForm("idDM"))
+	tenSP := c.PostForm("tensp")
+	giaBan, _ := strconv.ParseFloat(c.PostForm("giaban"), 64)
+	giaNhap, _ := strconv.ParseFloat(c.PostForm("gianhap"), 64)
+	soluong, _ := strconv.Atoi(c.PostForm("soluong"))
+	mota := c.PostForm("mota")
+	status := 1
+	err := p.PController.CreateNewProduct(idDanhMuc, tenSP, giaBan, giaNhap, soluong, mota, status)
+	if err != nil {
+		c.JSONP(400, gin.H{
+			"err": err,
+		})
+	} else {
+		c.JSONP(200, gin.H{
+			"message": "insert success",
+		})
+	}
+}
+
+func (p ProductController) AlterProduct(c *gin.Context) {
+	id, _ := strconv.Atoi(c.PostForm("id"))
+	idDanhMuc, _ := strconv.Atoi(c.PostForm("idDM"))
+	tenSP := c.PostForm("tensp")
+	giaBan, _ := strconv.ParseFloat(c.PostForm("giaban"), 64)
+	giaNhap, _ := strconv.ParseFloat(c.PostForm("gianhap"), 64)
+	soluong, _ := strconv.Atoi(c.PostForm("soluong"))
+	mota := c.PostForm("mota")
+
+	err := p.PController.AlterProduct(id, idDanhMuc, tenSP, giaBan, giaNhap, soluong, mota)
+	if err != nil {
+		c.JSONP(400, gin.H{
+			"err": err,
+		})
+	} else {
+		c.JSONP(200, gin.H{
+			"msg": "thanh cong",
+		})
+	}
+}
+
+func (p ProductController) DeleteSoftProduct(c *gin.Context) {
+	id, _ := strconv.Atoi(c.PostForm("id"))
+	err := p.PController.DeleteSoftProduct(id)
+	if err != nil {
+		c.JSONP(400, gin.H{
+			"err": err,
+		})
+	} else {
+		c.JSONP(200, gin.H{
+			"msg": "thanh cong",
+		})
+	}
 }

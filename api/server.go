@@ -43,6 +43,7 @@ func (s *Server) Start() error {
 	prodController := controller.NewProductController(prodService)
 	prodController.SetRouterSanPhamController(s.route)
 
+	s.route.LoadHTMLGlob("templates/*.html")
 	s.route.Use(cors.Default())
 	err = s.route.Run(fmt.Sprintf(":%s", port))
 	if err != nil {
