@@ -1,0 +1,21 @@
+.vinh-outer-wrap h2 {
+    display: inline-block;
+    margin-top: 40px;
+    font-weight: 400;
+}
+
+.vinh-outer-wrap a {
+    display: inline-block;
+    font-size: 150%;
+    color: blue;
+}
+
+.vinh-outer-wrap a:hover {
+    text-decoration: underline;
+}
+
+.vinh-container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}

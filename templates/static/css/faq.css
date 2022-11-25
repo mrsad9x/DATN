@@ -1,0 +1,99 @@
+/* --------------------------------------------------- */
+/* LAYOUT */
+/* --------------------------------------------------- */
+
+.vinh-outer-wrap {
+    width: 100vw;
+    overflow: hidden;
+    margin: 100px 0;
+    height: 100%;
+}
+
+.account-banner {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(/Resources/Img/home-page-img/product-slider.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    max-width: 1920px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Montserrat';
+    letter-spacing: 3px;
+}
+
+.vinh-faq-container {
+    display: grid;
+    max-width: 1080px;
+    height: 470px;
+    margin: 0 auto;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+@media screen and (max-width: 1150px) {
+    .vinh-faq-container {width: 740px; height: 720px; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr;}
+}
+
+@media screen and (max-width: 745px) {
+    .vinh-faq-container {width: 360px; height: 1600px; grid-template-columns: 1fr; grid-template-rows: repeat(8, 1fr); padding-left: 20px; padding-right: 20px; padding-bottom: 20px;}
+    .vinh-faq-container p {padding-bottom: 20px;}
+}
+
+.vinh-faq-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #e7e7e7;
+    border-radius: 3px;
+}
+
+/* --------------------------------------------------- */
+/* ICONS */
+/* --------------------------------------------------- */
+
+.icon {
+    display: flex;
+    margin: 20px auto 0 auto;
+    border: 2px solid;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    color: #339999;
+}
+
+.vinh-faq-container i {
+    margin: auto;
+    font-size: 150%;
+}
+
+.icon i {
+    margin: auto;
+    font-size: 200%;
+}
+
+/* --------------------------------------------------- */
+/* TEXT */
+/* --------------------------------------------------- */
+
+.vinh-faq-container h1 {
+    display: flex;
+    font-size: 120%;
+    margin: 15px auto 20px auto;
+}
+
+.vinh-faq-container p {
+    font-size: 90%;
+}
+
+.vinh-faq-content:hover .icon {
+    background-color: #f6f6f6;
+}

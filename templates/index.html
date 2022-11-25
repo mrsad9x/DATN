@@ -1,14 +1,637 @@
-<html>
-	<title>
-		{{ .title }}
-	</title>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-    List:
-        {{ range $key, $value := .listProduct }}
-                {{ $key }}
-                ID: {{ $value.Id }}
-                Name: {{ $value.TenSP }},
-                Gia ban: {{ $value.GiaBan }},
-                Mo ta: {{ $value.MoTaSP }}
-        {{ end }}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Durable Furniture</title>
+  <link rel="icon" href="/Resources/Img/header-footer-img/Logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="/css/header-footer-min.css">
+  <link rel="stylesheet" href="/css/home-page-min.css">
+  <link rel="stylesheet" href="/css/home-page-media-min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
+</head>
+
+<body>
+  <div class="vinh-container">
+    <div class="vinh-free-shipping-container">
+      <div class="vinh-free-shipping-wrap">
+        <div class="vinh-free-shipping-item">
+          <span class="vinh-free-shipping-emp">free-shipping</span> for orders above $100!!!
+        </div>
+        <div class="vinh-free-shipping-item">
+          <span class="vinh-free-shipping-emp">free-shipping</span> on your first order!!!
+        </div>
+        <div class="vinh-free-shipping-item">
+          <span class="vinh-free-shipping-emp">call us</span> for more information 043-235-2561
+        </div>
+      </div>
+      <div class="vinh-find-store">
+        <a href="/find_store" style="color: white;">Find a store</a> <i class="bi bi-geo-alt"></i>
+      </div>
+    </div>
+    <header>
+      <div class="vinh-header-wrap" id="navbar">
+        <div class="vinh-inner-container">
+          <div class="vinh-sub-menu">
+            <i id="myIcon" onclick="subMenuFunction()" class="bi bi-list" style="font-size: 150%;"></i>
+          </div>
+          <a href="/home"><img class="vinh-logo"
+              src="Resources/Img/header-footer-img/Dark Slate Grey Star Icon Business Logo web.png"></a>
+        </div>
+        <div class="vinh-inner-container vinh-menu">
+          <ul class="vinh-menu-list">
+            <li class="vinh-drop-down">
+              <a class="vinh-menu-style" href="/home">Home</a>
+            </li>
+            <li class="vinh-drop-down">
+              <a class="vinh-menu-style" href="/brand">Furniture</a>
+              <div class="vinh-drop-down-content vinh-furniture">
+                <div class="vinh-drop-down-item">
+                  <img src="Resources/Img/header-footer-img/hugo_noblanket_600x500.jpg">
+                  <h3>Living Room</h3>
+                  <ul>
+                    <li><a href="/frato">Sofas</a></li>
+                    <li><a href="/frato">Loveseats</a></li>
+                    <li><a href="/frato">Sectionals</a></li>
+                    <li><a href="/frato">Chairs & Chaises</a></li>
+                    <li><a href="/frato">Sofa Beds & Futons</a></li>
+                    <li><a href="/frato">Recliners</a></li>
+                    <li><a href="/frato">Ottoman & Benches</a></li>
+                    <li><a href="/frato">Cabinets & Etageres</a></li>
+                    <li><a href="/frato">Living Room Packages</a></li>
+                    <li><a href="/frato">3 Piece Sofa Set</a></li>
+                  </ul>
+                </div>
+                <div class="vinh-drop-down-item">
+                  <img src="Resources/Img/header-footer-img/juneau_dining_horizontal_600x.jpg">
+                  <h3>Dining Room</h3>
+                  <ul>
+                    <li><a href="/frato">Dining Sets</a></li>
+                    <li><a href="/frato">Chairs</a></li>
+                    <li><a href="/frato">Benches</a></li>
+                    <li><a href="/frato">Counter & Bar Stools</a></li>
+                    <li><a href="/frato">Buffets & Sideboards</a></li>
+                    <li><a href="/frato">China Cabinets & Curious</a></li>
+                    <li><a href="/frato">Bars</a></li>
+                    <li><a href="/frato">Modern Dining</a></li>
+                    <li><a href="/frato">Custom Designed Table</a></li>
+                    <li><a href="/frato">6 Seater Dining</a></li>
+                  </ul>
+                </div>
+                <div class="vinh-drop-down-item">
+                  <img src="Resources/Img/header-footer-img/juneau_bed_v1_600x.jpg">
+                  <h3>Bed Room</h3>
+                  <ul>
+                    <li><a href="/frato">King Beds</a></li>
+                    <li><a href="/frato">Queen Beds</a></li>
+                    <li><a href="/frato">Full Beds</a></li>
+                    <li><a href="/frato">Daybeds & Futons</a></li>
+                    <li><a href="/frato">Headboards & Frames</a></li>
+                    <li><a href="/frato">Dressers & Chests</a></li>
+                    <li><a href="/frato">Mirros</a></li>
+                    <li><a href="/frato">Nightstands</a></li>
+                    <li><a href="/frato">Armoires</a></li>
+                    <li><a href="/frato">Bedroom Sets</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="vinh-drop-down">
+              <a class="vinh-menu-style" href="/brand">Brands</a>
+              <div class="vinh-drop-down-content vinh-brand">
+                <div class="vinh-drop-down-item">
+                  <a href="/brand">Essential Home</a>
+                </div>
+                <div class="vinh-drop-down-item">
+                  <a href="/brand">Frato</a>
+                </div>
+                <div class="vinh-drop-down-item">
+                  <a href="/brand">Koket</a>
+                </div>
+                <div class="vinh-drop-down-item">
+                  <a href="/brand">Erado</a>
+                </div>
+                <div class="vinh-drop-down-item">
+                  <a href="/brand">Bentley Home</a>
+                </div>
+                <div class="vinh-drop-down-item">
+                  <a href="/brand">Capellini</a>
+                </div>
+              </div>
+            </li>
+            <li class="vinh-drop-down">
+              <a class="vinh-menu-style" href="/blog">Blog</a>
+            </li>
+            <li class="vinh-drop-down">
+              <a class="vinh-menu-style" href="/contact-us">Contact us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="vinh-inner-container">
+          <ul class="vinh-icon-list">
+            <li id="search-bar" class="collapsed">
+              <div id="search-box">
+                <div id="sliding-panel-outer">
+                  <form action="@{/search}" method="get">
+                    <div id="sliding-panel-inner">
+                      <input type="text" id="search-input" value="${value}" placeholder="Search..." name="str" required />
+<!--                      <button type="submit"></button>-->
+                    </div>
+                  </form>
+                  <!--#sliding-panel-inner-->
+                </div>
+                <!--#sliding-panel-outer-->
+
+                <div class="search-label">
+                  <i id="search-one" class="bi bi-search"></i>
+                </div>
+              </div>
+              <!--#search-box-->
+            </li>
+            <!--#searchbar-->
+            <li>
+              <a href="/wishlist"><i class="bi bi-heart"></i></a>
+            </li>
+            <li class="vinh-cart" style="position: relative;">
+              <a href="/cart"><i class="bi bi-cart3"></i></a>
+              <div class="vinh-cart-drop-down">
+                <p>Your shopping cart (2 items)</p>
+                <div style="margin: 15px 0;">
+                  <div class="vinh-cart-item">
+                    <figure class="vinh-promo-pic">
+                      <img class="vinh-pic"
+                        src="Resources/Img/product-cart-wish-img/frato-metal-classic-out-door-dining-chair-(1).jpg" />
+                    </figure>
+                    <span>Frato Metal Classic Out Door Dining Chair</span>
+                    <span>1 x $83.00</span>
+                    <i class="bi bi-x-circle"></i>
+                  </div>
+                  <div class="vinh-cart-item">
+                    <figure class="vinh-promo-pic">
+                      <img class="vinh-pic"
+                        src="Resources/Img/product-cart-wish-img/rattan-modern-dining-chair-(13).jpg" />
+                    </figure>
+                    <span>Frato Rattan Modern Dining Chair</span>
+                    <span>1 x $38.00</span>
+                    <i class="bi bi-x-circle"></i>
+                  </div>
+                  <div class="subtotal">
+                    <p>Cart Subtotal:</p>
+                    <p>$121.00</p>
+                  </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between;">
+                  <a class="vinh-button" href="/cart">View Cart</a>
+                  <a class="vinh-button" href="/checkout">Check Out</a>
+                </div>
+              </div>
+            </li>
+            <li><a href="${userLink}" text="${userStatus}">Log in</a></li>
+            <li><a href="${loginLink}" text="${loginStatus}">Log in</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="myDropdown" class="vinh-sub-menu-dropdown">
+        <ul>
+          <li><a href="/home" style="color:#6CB975 !important">home</a></li>
+          <li><a href="/frato">furniture</a></li>
+          <li><a href="/brand">brand</a></li>
+          <li><a href="/blog">blog</a></li>
+          <li><a href="/contact-us">contact</a></li>
+          <li>
+            <input class="vinh-sub-menu-search" type="text" placeholder="Search...">
+            <button class="vinh-search-button" type="submit">Search</button>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="vinh-promo-slide">
+      <div class="vinh-promo-slide-wrap vinh-header-slide vinh-first-slide">
+        <div class="vinh-banner">
+          <h1>DURABLE FURNITURE</h1>
+          <p>Shop high-end furnitures</p>
+          <a href="/frato">SHOP NOW</a>
+        </div>
+      </div>
+      <div class="vinh-promo-slide-wrap vinh-header-slide vinh-second-slide">
+        <div class="vinh-banner">
+          <h1>EXPLORE NEW LIFESTYLE</h1>
+          <p>Free yourself from limitations</p>
+          <a href="/frato">SHOP NOW</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="vinh-outer-wrap">
+      <div class="vinh-product-promo vinh-wrap">
+        <div class="vinh-product-promo-item">
+          <div class="vinh-product-promo-text vinh-inside-text">
+            <p>UPTO</p>
+            <h1>
+              <span class="vinh-sale-percent">25</span>
+              <span class="vinh-supsub">
+                <sup>%</sup>
+                <sub>OFF</sub>
+              </span>
+            </h1>
+            <h2>TOP BRANDS</h2>
+            <a class="vinh-button" href="/brand">SHOP NOW</a>
+          </div>
+          <figure class="vinh-promo-pic">
+            <img class="vinh-pic" src="Resources/Img/home-page-img/warren-lifestyle-1200x1000.jpg">
+          </figure>
+
+        </div>
+        <div class="vinh-product-promo-item">
+          <div class="vinh-product-promo-text vinh-inside-text">
+            <h3>LAST OFFER</h3>
+            <h2>STOCK</h2>
+            <a class="vinh-button" href="/frato">CLEARANCE SALE!</a>
+          </div>
+          <figure class="vinh-promo-pic">
+            <img class="vinh-pic" src="Resources/Img/home-page-img/juneau-sideboard-600x500.jpg">
+          </figure>
+        </div>
+        <div class="vinh-product-promo-item">
+          <div class="vinh-product-promo-text vinh-inside-text">
+            <h2 style="margin: 0;">2021</h2>
+            <h3>NEW COLLECTION</h3>
+            <a class="vinh-button" href="/frato">SHOP NOW</a>
+          </div>
+          <figure class="vinh-promo-pic">
+            <img class="vinh-pic" src="Resources/Img/home-page-img/standard-livingroom.jfif">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="vinh-outer-wrap">
+      <div class="vinh-popular-product" >
+        <h1 class="vinh-section-teller">Popular Products</h1>
+        <ul class="vinh-popular-product-slide" >
+          <li class="vinh-popular-product-item" each="prd : ${listPrHot}">
+            <a href="@{'/get_details/' + ${prd.id}}">
+              <figure class="vinh-promo-pic">
+                <img class="vinh-pic" th:src="@{${prd.pathImage}}">
+              </figure>
+            </a>
+            <div>
+              <p th:text="${prd.name}">Name</p>
+              <h4 th:text="${prd.price} * 1">Price</h4>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="vinh-outer-wrap">
+      <div class="vinh-short-ad vinh-wrap">
+        <div class="vinh-short-ad-text">
+          <h2>Premium Home Decor</h2>
+          <p>The brand doesn’t believe in serving with the ordinary, the mediocre, things that are easy to create or
+            find. Fabuliv endeavours to achieve high standards of design, production and creativity on regular basis.
+          </p>
+          <a class="vinh-button" href="/frato">SHOP NOW</a>
+        </div>
+        <div class="vinh-short-ad-pic">
+          <figure class="vinh-promo-pic">
+            <img class="vinh-pic" src="/Resources/Img/home-page-img/magrit_booshelf.jpg">
+          </figure>
+        </div>
+        <div class="vinh-short-ad-product">
+          <ul>
+            <li>
+              <a href="/chair">
+                <figure class=" vinh-promo-pic">
+                  <img class="vinh-pic" src="/Resources/Img/home-page-img/celeste.jpg">
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="/chair">
+                <figure class=" vinh-promo-pic">
+                  <img class="vinh-pic" src="/Resources/Img/home-page-img/gregata-black-med_600x.jpg">
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="/chair">
+                <figure class=" vinh-promo-pic">
+                  <img class="vinh-pic" src="/Resources/Img/home-page-img/liam_sofa_chair.jpg">
+                </figure>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="vinh-outer-wrap vinh-promo-slide">
+      <div class="vinh-promo-slide-wrap vinh-ad-banner vinh-first-slide">
+        <div class="vinh-ad-section">
+          <h2>Veneto Arm Chair</h2>
+          <p>We use quality materials sourced that vouch for longevity and novelty while keeping our business absolutely
+            environmentally friendly.</p>
+          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          <h3><del>$200.00</del>$170.00</h3>
+          <a class="vinh-button" href="/chair">SHOP NOW</a>
+        </div>
+      </div>
+      <div class=" vinh-promo-slide-wrap vinh-ad-banner vinh-second-slide">
+        <div class="vinh-ad-section">
+          <h2>Comfortable King Bed</h2>
+          <p>We use quality materials sourced that vouch for longevity and novelty while keeping our business absolutely
+            environmentally friendly.</p>
+          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          <h3><del>$200.00</del>$170.00</h3>
+          <a class="vinh-button" href="/chair">SHOP NOW</a>
+        </div>
+      </div>
+    </section>
+
+    <section class=" vinh-outer-wrap" style="text-align: center;">
+      <h1 class="vinh-section-teller">Hot New Arrivals</h1>
+      <div class="vinh-new-arrival vinh-wrap">
+        <div class="vinh-new-arrival-item">
+          <figure class="vinh-promo-pic">
+            <img class="vinh-pic" src="Resources/Img/home-page-img/cat-00.jpg">
+          </figure>
+          <a class="vinh-inside-text" href="/frato">Office Furniture
+            Collection</a>
+        </div>
+        <div class="vinh-new-arrival-item">
+          <figure class="vinh-promo-pic">
+            <img class="vinh-pic" src="Resources/Img/home-page-img/living-room-furniture.jpg">
+          </figure>
+          <a class="vinh-inside-text" href="/frato">Living Room Furniture</a>
+        </div>
+        <div class="vinh-new-arrival-item">
+          <figure class="vinh-promo-pic">
+            <img class="vinh-pic" src="Resources/Img/home-page-img/cat-01.jpg">
+          </figure>
+          <a class="vinh-inside-text" href="/frato">Bed Room Furniture</a>
+        </div>
+        <div class="vinh-new-arrival-item">
+          <figure class="vinh-promo-pic">
+            <img class="vinh-pic" src="Resources/Img/home-page-img/study-table.jpg">
+          </figure>
+          <a class="vinh-inside-text" href="/frato">Study Table for
+            Comfort</a>
+        </div>
+        <div class="vinh-new-arrival-item">
+          <figure class="vinh-promo-pic">
+            <img class="vinh-pic" src="Resources/Img/home-page-img/cat-02.jpg">
+          </figure>
+          <a class="vinh-inside-text" href="/frato">Outdoor Living
+            Furniture</a>
+        </div>
+        <div class="vinh-new-arrival-item">
+          <figure class="vinh-promo-pic">
+            <img class="vinh-pic" src="Resources/Img/home-page-img/dinning-bar-furniture.jpg">
+          </figure>
+          <a class="vinh-inside-text" href="/frato">Dining Room & Bar</a>
+        </div>
+      </div>
+      <a style="width: 250px" class="vinh-button" href="/frato">SHOP NOW</a>
+    </section>
+
+    <section class="vinh-outer-wrap vinh-about-company">
+      <div class="vinh-about-company-left">
+        <div>
+          <p>More About</p>
+          <h2>The Company</h2>
+          <p>Durable Furniture has been the industry's standard furniture distribution center ever since the 1500s, when
+            an unknown men took a galley of type and scrambled it to make a type specimen table.</p>
+          <a class="vinh-button" href="/about-us">Learn More</a>
+        </div>
+      </div>
+      <div>
+        <figure class="vinh-promo-pic">
+          <img class="vinh-pic" src="Resources/Img/home-page-img/intro.jpg">
+        </figure>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 0 !important;" class="vinh-outer-wrap vinh-blog">
+      <h1 class="vinh-section-teller">Lastest Blog Post</h1>
+      <div class="vinh-wrap vinh-blog-wrap">
+        <div class="vinh-blog-post">
+          <figure class="vinh-promo-pic">
+            <img class="vinh-pic" src="Resources/Img/home-page-img/neonbran_unsplash_570x350.jpg">
+          </figure>
+          <div class="vinh-inside-text">
+            <div class="vinh-blog-info">
+              <i class="bi bi-calendar2-week"></i> <span>July 25, 2021</span>
+              <i class="bi bi-person-fill"></i> <span>Vinh</span>
+            </div>
+            <h2>Modern furniture design for your mordern house</h2>
+            <p>The word bouclé is a French word, translated to English bouclé it means “curls’ - this is a reference to
+              how bouclé yarn and fabric is made, which is from many different loops or “curls”. It’s this process that
+              gives the fabric it’s intriguing appearance....</p>
+            <a class="vinh-button" href="/blog">Read More</a>
+          </div>
+        </div>
+        <div class="vinh-blog-post">
+          <figure class="vinh-promo-pic">
+            <img class="vinh-pic" src="Resources/Img/home-page-img/pexels-photo-210265-570x350.jpeg">
+          </figure>
+          <div class="vinh-inside-text">
+            <div class="vinh-blog-info">
+              <i class="bi bi-calendar2-week"></i> <span>July 25, 2021</span>
+              <i class="bi bi-person-fill"></i> <span>Vinh</span>
+            </div>
+            <h2>Modern furniture design for your mordern house</h2>
+            <p>Grandmilenial style could be one of the reasons that velvet is making such a comeback. This new popular
+              trend is a bold one, mixing woods and modern furniture, minimalistic styles with the retro, nostalgic
+              styles you’d see in your grandma’s house...</p>
+            <a class="vinh-button" href="/blog">Read More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="hong-scroll-top-btn" onclick="hongScrollTop()">
+      <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <div class="vinh-container-footer"></div>
+    <footer>
+      <div class="ft-social vinh-info">
+        <div class="ft-main-item">
+          <h3 class="ft-title">About the company</h3>
+          <ul>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Affiliates</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Investor Ralations</a></li>
+          </ul>
+        </div>
+        <div class="ft-main-item">
+          <h3 class="ft-title">Customer Service</h3>
+          <ul>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/faq">Help Center</a></li>
+            <li><a href="#">Shopping Guide</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="mailto:vinhtb.jp@gmail.com">Email us</a></li>
+          </ul>
+        </div>
+        <div class="ft-main-item">
+          <h3 class="ft-title">Site Terms</h3>
+          <ul>
+            <li><a href="#">Sitemap</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Terms of Sale</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Shop Glossary</a></li>
+          </ul>
+        </div>
+        <div class="ft-main-item">
+          <h3 class="ft-title">Newsletter Subcribe</h3>
+          <p style="margin-top: 10px;">Get 5% OFF when you signup for<br>our email newsletter!</p>
+          <div class="vinh-newsletter">
+            <form>
+              <input class="vinh-newsletter-input" type="email" name="email">
+            </form>
+            <i class="bi bi-envelope"></i>
+          </div>
+        </div>
+      </div>
+      <div class="ft-social-container">
+        <div class="ft-social vinh-sns">
+          <span>&copy; 2021 Durable Furniture. All rights reserved</span>
+          <div class="vinh-sns-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tumblr"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-migrate-3.3.2.min.js"
+    integrity="sha256-Ap4KLoCf1rXb52q+i3p0k2vjBsmownyBTE1EqlRiMwA=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+  <script src="https://kit.fontawesome.com/957c836d53.js" crossorigin="anonymous"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('.vinh-promo-slide').slick({
+        infinite: true,
+        speed: 200,
+        autoplay: true,
+        variableWidth: true,
+        arrows: true
+      })
+
+      $('.vinh-popular-product-slide').slick({
+        infinite: true,
+        speed: 500,
+        autoplay: true,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        dots: true,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      })
+
+      $('#search-bar .search-label').on('click', function (e) {
+        e.preventDefault();
+        $('#search-bar').toggleClass('collapsed');
+      });
+
+      $('#myIcon').click(function () {
+        $('#myDropdown').addClass('vinh-show');
+      })
+    });
+
+    window.onclick = function (event) {
+      if (!event.target.matches('.bi-list')) {
+        var dropdowns = document.getElementsByClassName('vinh-sub-menu-dropdown');
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('vinh-show')) {
+            openDropdown.classList.remove('vinh-show');
+          }
+        }
+      }
+    }
+
+    document.getElementById("myIcon").onclick = function () {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    };
+
+    window.onscroll = function () { myFunction() };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    hScrollTopBtn = document.getElementById("hong-scroll-top-btn");
+
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("vinh-sticky")
+      } else {
+        navbar.classList.remove("vinh-sticky");
+      }
+
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        hScrollTopBtn.style.display = "block";
+      } else {
+        hScrollTopBtn.style.display = "none";
+      }
+    }
+
+    function hongScrollTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    };
+  </script>
+
+</body>
+
 </html>

@@ -1,0 +1,137 @@
+@media screen and (max-width: 768px) {
+    .Thang-contact-img{
+        width: 100%;
+        height: 300px;
+        color: #fff;
+        margin: auto;
+        margin-top: 50px;
+    }
+    .Thang-contact-box{
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        margin-top: 40px;
+        position: relative;
+        padding: 48px 12px 24px;
+    }
+    .Thang-contact-box-1 h3{
+        font-size: 30px;
+        padding: 0 12px;
+        margin: 0;
+    }
+    .Thang-contact-text{
+        margin: auto;
+        text-align: center;
+        padding: 65px 140px 0px 140px;
+        font-size: 25px;
+    }
+    .Thang-contact-box-2{
+        display: flex;
+        width: 100%;
+        margin-top: -24px;
+        flex-wrap: wrap;
+        margin: 0;
+    }
+    .Thang-contact-card{
+        display: block;
+        background-color: white;
+        width: 48%;
+        border:  none;
+
+    }
+    .Thang-card-1{
+        height: 270px;
+        position: relative;
+        padding: 24px 24px;
+        border: 1px solid #d6d6d6;
+        border-radius: 20px;
+    }
+    .Thang-contact-map{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        padding: 48px 12px 24px;
+    }
+    .Thang-map-1{
+        display: block;
+        width: 100%;
+        height: 100%;
+      
+    }
+    .Thang-map-2{
+        display: block;
+        width: 100%;
+    }
+
+}
+
+
+@media screen and (max-width: 570px) {
+    .Thang-contact-img{
+        width: 375px;
+        height: 300px;
+        color: #fff;
+        margin: auto;
+        margin-top: 50px;
+        background-position: center;
+        background-size: cover;
+    }
+    .Thang-contact-text{
+        margin: auto;
+        text-align: center;
+        padding: 65px 10px 0px 10px;
+        font-size: 15px;
+    }
+    .Thang-contact-box{
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        margin-top: 40px;
+        position: relative;
+        padding: 48px 12px 24px;
+    }
+    .Thang-contact-box-1 h3{
+        font-size: 30px;
+        padding: 0 12px;
+        margin: 0;
+    }
+    .Thang-contact-box-2{
+        display: flex;
+        width: 100%;
+        margin-top: -24px;
+        flex-wrap: wrap;
+        margin: 0;
+    }
+    .Thang-contact-card{
+        display: block;
+        background-color: white;
+        width: 100%;
+        border:  none;
+
+    }
+    .Thang-card-1{
+        height: 270px;
+        position: relative;
+        padding: 24px 24px;
+        border: 1px solid #d6d6d6;
+        border-radius: 20px;
+    }
+    .Thang-contact-map{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        padding: 48px 12px 24px;
+    }
+    .Thang-map-1{
+        display: block;
+        width: 100%;
+        height: 100%;
+      
+    }
+    .Thang-map-2{
+        display: block;
+        width: 100%;
+    }
+}

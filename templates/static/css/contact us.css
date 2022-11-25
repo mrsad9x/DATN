@@ -1,0 +1,120 @@
+html{
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+.container{
+    width: 100%;
+    overflow: hidden;
+}
+.Thang-map{
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+iframe {
+    width: 100%;
+    height: 400px;
+}
+
+.Thang-contactus{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    padding-top: 60px;
+    margin: 0 auto;
+    width: 1170px;
+    height: 300px;
+}
+.Thang-custom{
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    font-size: 15px;
+    display: block;
+    margin: auto;
+    width: 380px;  
+    margin-top: 10px; 
+    height: 200px;
+    padding-left: 90px;
+    padding-right: 90px;
+}
+h4{
+    font-size: 20px;
+}
+.Thang-Media{
+    display: block;
+    margin-top: 15px;
+
+
+}
+.Thang-Media-1{
+    margin: 0 auto;
+    margin-right: 2px;
+    display: inline;
+    width: 38px;
+    height: 30.5px;
+    font-size: 14px;
+    border-bottom: solid;
+    border-top: solid;
+    border-left: solid;
+    border-right: solid;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 2px;
+}
+.Thang-Email{
+    display: flex;
+    padding-top: 60px;
+}
+.Thang-Email-1{
+    margin: auto;
+    text-align: center;
+    display: block;
+}
+.Thang-Textemail{
+    display: flex;
+    justify-content: space-between;
+    width: 1170px;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 120px;
+    text-align: left;
+}
+.Thang-Textemail1{
+    width: 560px;
+    display: block;
+    margin-top: 17px;
+}
+#Thang-email-box{
+    width: 560px;
+    height: 40px; 
+    display: block;
+    margin: auto;
+    text-align: left;
+}
+#YourMessage{
+    width: 560px;
+    height: 149px;
+    display: block;
+}
+.Thang-inputsend{
+    display: block;
+    margin-top: 15px;
+
+}
+.Thang-send{
+    width: 563px;
+    height: 40px;
+    display: block;
+    background-color: black;
+    color: white;
+    border: none;  
+    text-align: center;
+    margin: auto;
+}
+

@@ -1,0 +1,73 @@
+.vinh-outer-wrap {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(/Resources/Img/header-footer-img/livingroom2.jpg);
+    background-size: cover;
+    background-position: center;
+    margin: 0 !important;
+    padding: 100px 0;
+    color: white !important;
+}
+
+.vinh-account-container {
+    width: 85vw;
+    max-width: 1180px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin: 0 auto;
+
+}
+
+.vinh-account-container form {
+    width: 100%;
+}
+
+.vinh-account-container h1 {
+    font-weight: 600;
+    font-family: 'Montserrat';
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.vinh-customer-input {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 20px;
+
+}
+
+.vinh-input-box {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+}
+
+.vinh-checkbox-margin {
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .vinh-account-container {display: block; width: 75vw;}
+    .vinh-account-banner {height: 250px;}
+}
+
+.vinh-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.vinh-forget {
+    margin-left: 12px;
+    color: white;
+}
+
+.vinh-forget:hover {
+    color: black;
+}
+
+.vinh-checkbox-margin {
+    margin-bottom: 20px;
+}
+
+.vinh-button {
+    color: white;
+}

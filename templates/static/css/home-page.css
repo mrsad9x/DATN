@@ -1,0 +1,556 @@
+/* ------------------------------------------------------ */
+/* PROMO SLIDE */
+/* ------------------------------------------------------ */
+
+.vinh-promo-slide {
+    overflow: hidden;
+}
+
+.vinh-promo-slide-wrap {
+    display: block;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+}
+
+.vinh-header-slide {
+    padding-top: 13vw;
+    padding-bottom: 25vw;
+    text-align: center;
+}
+
+.vinh-first-slide {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url(/Resources/Img/home-page-img/slider-2.jpg);  
+}
+
+.vinh-second-slide {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(/Resources/Img/home-page-img/slider-1.jpg);
+}
+
+.vinh-banner {
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-family: 'Montserra';
+}
+
+.vinh-banner h1 {
+    font-size: 3.25vw;
+    letter-spacing: 10px;
+    margin-bottom: 10px;
+}
+
+.vinh-banner p {
+    font-size: 1.75vw;
+    letter-spacing: 5px;
+    margin-bottom: 2.5vw;
+}
+
+.vinh-banner a {
+    text-decoration: none;
+    color: white;
+    font-size: 1vw;
+    padding: 20px 60px;
+    background-color: #ec7264;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.vinh-banner a:hover {
+    background-color: #e85646;
+}
+
+
+
+/* ------------------------------------------------------ */
+/* PRODUCT PROMO */
+/* ------------------------------------------------------ */
+
+.vinh-wrap {
+    display: grid;
+    overflow: hidden;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.vinh-product-promo {
+    grid-template-columns: 54% 46%;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    height: 620px;
+}
+
+.vinh-product-promo-item {
+    overflow: hidden;
+    position: relative;
+    background-color: black;
+    cursor: pointer;
+}
+
+.vinh-promo-pic {
+    margin: 0;
+    overflow: hidden;
+}
+
+.vinh-product-promo-item .vinh-promo-pic {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: .85;
+}
+
+.vinh-pic {
+    display: block;
+    transform: scale(1);
+    transition: transform 0.5s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vinh-promo-pic img:hover {
+    transform: scale(1.1);
+}
+
+.vinh-product-promo-item:first-child {
+    grid-row: span 2;
+    color: white !important;
+}
+
+.vinh-product-promo-text {
+    font-size: 120%;
+}
+
+.vinh-product-promo-item .vinh-inside-text {
+    color: white !important;
+}
+
+.vinh-inside-text {
+    position: absolute;  
+    z-index: 1000;
+    display: block;
+}
+
+.vinh-product-promo-item:first-child .vinh-product-promo-text {
+    margin: 30px;
+    bottom: 0;
+}
+
+.vinh-product-promo-item:nth-child(2) .vinh-product-promo-text {
+    margin: 10px 50px;
+    right: 0;
+}
+
+.vinh-product-promo-item:nth-child(3) .vinh-product-promo-text {
+    margin: 20px;
+}
+
+.vinh-product-promo-item:nth-child(3) .vinh-product-promo-text h3 {
+    margin-bottom: 10px;
+}
+
+.vinh-product-promo-item:hover .vinh-button {
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+}
+
+.vinh-product-promo-text p {
+    line-height: .8em;
+    margin-bottom: 10px;
+}
+
+.vinh-product-promo-text h1 {
+    position: relative;
+    font-size: 300%;
+    line-height: 1em;
+}
+
+.vinh-product-promo-text h2 {
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.vinh-product-promo-text h3 {
+    font-weight: 400;
+}
+
+.vinh-product-promo-text h2 {
+    line-height: 1em;
+    margin-bottom: 10px;
+}
+
+.vinh-supsub {position: absolute;}
+
+.vinh-supsub sub,
+.vinh-supsub sup {
+    display: block;
+    font-size: .4em;
+    position: relative;
+}
+
+.vinh-supsub sub {
+    left: 2px;
+    top: -48px;
+}
+
+.vinh-supsub sup {
+    left: 2px;
+    top: -15px;
+}
+
+/* ------------------------------------------------------ */
+/* POPULAR PRODUCTS */
+/* ------------------------------------------------------ */
+
+.vinh-popular-product {
+    text-align: center;
+}
+
+.vinh-section-teller {
+    font-weight: 400;
+    font-size: 240%;
+    margin-bottom: 50px;
+}
+
+.vinh-section-teller::after {
+    display: block;
+    content: "";
+    width: 30px;
+    height: 3px;
+    background-color: #ffc400;
+    margin: 5px auto;
+}
+
+.vinh-popular-product-item {
+    text-align: center;
+    position: relative;
+}
+
+.vinh-popular-product-item .vinh-promo-pic {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.vinh-popular-product-slide {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.slick-slide {
+    margin: 0 15px;
+}
+
+/* ------------------------------------------------------ */
+/* SHORT AD SECTION */
+/* ------------------------------------------------------ */
+
+.vinh-short-ad {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 2fr 1fr;
+    height: 850px;
+}
+
+.vinh-short-ad h2 {
+    font-weight: 400;
+    font-size: 200%;
+    margin: 50px 0 10px 0;
+}
+
+.vinh-short-ad p {
+    font-weight: 300;
+    margin-bottom: 50px;
+}
+
+.vinh-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.vinh-short-ad-product {
+    position: relative;
+    grid-column: span 2;
+}
+
+.vinh-short-ad-product ul {
+    display: grid;
+    position: absolute;
+    top: -90px;
+    left: 25px;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 900px;
+    gap: 30px;
+}
+
+.vinh-short-ad-product .vinh-promo-pic {
+    width: 100%;
+    height: 350px;
+    padding: 50px 0;
+    background-color: #ddd;
+}
+
+.vinh-short-ad-pic {
+    height: 500px;
+}
+
+.vinh-short-ad-pic .vinh-promo-pic {
+    width: 100%;
+    height: 100%;
+}
+
+/* ------------------------------------------------------ */
+/* AD BANNER SECTION */
+/* ------------------------------------------------------ */
+
+.vinh-ad-banner {
+    padding: 7vw 0 7vw 20vw;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Open Sans';
+}
+
+.vinh-outer-wrap .vinh-first-slide {
+    background-image: url(/Resources/Img/home-page-img/product-slider.jpg) !important;
+}
+
+.vinh-outer-wrap .vinh-second-slide {
+    background-image: url(/Resources/Img/home-page-img/product-slider1.jpg) !important;
+}
+
+.vinh-ad-section {
+    width: 455px;
+    height: 350px;
+    background-color: black;
+    opacity: .7;
+    color: white;
+    padding: 35px 35px 30px 35px;
+}
+
+.vinh-ad-section h2 {
+    font-size: 200%;
+    font-weight: 400;
+}
+.vinh-ad-section p {
+    font-size: 90%;
+    margin: 15px 0;
+}
+
+.bi-star-fill {
+    font-size: 120%;
+    color: yellow;
+    margin: 3px;
+}
+
+.vinh-ad-section h3 {
+    margin: 20px 0;
+}
+
+.vinh-ad-section del {
+    margin-right: 20px;
+    color: #a1a1a1;
+}
+
+.vinh-ad-section .vinh-button {
+    background-color: yellow;
+    font-weight: 600;
+    padding: 15px 30px !important;
+}
+
+.vinh-ad-section .vinh-button:hover {
+    color: black;
+    background-color: white;
+}
+
+/* ------------------------------------------------------ */
+/* NEW ARRIVAL SECTION */
+/* ------------------------------------------------------ */
+
+.vinh-new-arrival {
+    height: 960px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.vinh-new-arrival .vinh-promo-pic {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.vinh-new-arrival-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.vinh-new-arrival .vinh-promo-pic {
+    border: 1px solid #f6f6f6;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.vinh-new-arrival-item .vinh-inside-text {
+    top: 50%;
+    left: 50%;
+    opacity: .85;
+    font-size: 110%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 55px;
+    line-height: 55px;
+    display: block;
+    background-color: #f6f6f6;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.vinh-new-arrival-item:hover .vinh-inside-text {
+    background-color: black;
+    color: white;
+}
+
+.vinh-new-arrival+.vinh-button {
+    font-weight: 600;
+    margin: 0 auto;
+    padding: 15px 75px !important;
+}
+
+/* ------------------------------------------------------ */
+/* ABOUT COMPANY */
+/* ------------------------------------------------------ */
+
+.vinh-about-company {
+    font-family: 'Montserrat';
+    font-size: 110%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 32vw;
+    background-color: #445265;
+    color: white;
+    text-align: justify;
+}
+
+.vinh-about-company-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    float: right;
+}
+
+.vinh-about-company-left div {
+    width: 31vw;
+    padding-right: 40px;
+}
+
+.vinh-about-company-left h2 {
+    margin: 5px 0 15px 0;
+}
+
+.vinh-about-company-left .vinh-button {
+    color: white;
+    margin-top: 30px;
+}
+
+/* ------------------------------------------------------ */
+/* BLOG POST */
+/* ------------------------------------------------------ */
+
+.vinh-blog {
+    text-align: center;
+}
+
+.vinh-blog-wrap {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    text-align: left;
+    height: 600px;
+}
+
+.vinh-blog .vinh-promo-pic {
+    height: 60%;
+    width: 100%;
+}
+
+.vinh-blog-post {
+    position: relative;
+    height: 450px;
+}
+
+.vinh-blog-post .vinh-inside-text {
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 90%;
+    height: 60%;
+    background-color: white;
+    opacity: .9;
+    padding: 30px 25px 0 30px;
+}
+
+.vinh-blog-post .vinh-inside-text p {
+    text-align: justify;
+}
+
+.vinh-blog-info {
+    font-size: 85%;
+}
+
+.bi-person-fill {
+    margin-left: 20px;
+}
+
+.vinh-blog-post h2 {
+    font-family: 'Montserrat';
+    font-size: 170%;
+    margin: 10px 0 20px 0;
+}
+
+.vinh-blog-post .vinh-button {
+    margin-top: 20px;
+}
+
+#hong-scroll-top-btn {
+    color: #151514;
+    text-align: center;
+    background-color: #ffc400;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    z-index: 9999;
+    bottom: 20px;
+    right: 10px;
+    position: fixed;
+    display: none;
+}
+
+#hong-scroll-top-btn:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    transition: all ease-in-out .3s;
+}
+
+.vinh-sale-box,
+.vinh-hot-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 7px 30px;
+    color: white;
+    border-radius: 0 15px 0 0;
+}
+
+.vinh-sale-box {
+    background-color: #6CB975;
+}
+
+.vinh-hot-box {
+    background-color: red;
+}
+
+.vinh-popular-product-item del {
+    font-weight: 400;
+}

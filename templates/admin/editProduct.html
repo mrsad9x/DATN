@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+    <th:block th:insert="~{fragments/ad_header::link}"></th:block>
+</head>
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+    <th:block th:insert="~{fragments/sidebar }"></th:block>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <th:block th:insert="~{fragments/topbar }"></th:block>
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800">Product Edit</h1>
+                <p class="mb-4"></p>
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex align-items-center">
+                        <h6 class="m-0 font-weight-bold text-primary mr-3">Add
+                            Product</h6>
+                    </div>
+                    <div class="card-body">
+
+                        <form th:action="@{/admin/products/update_product}" method="POST" id="invoiceForm" th:object="${product}">
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="id">ID</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" th:field="*{id}" class="form-control" readonly/>
+                                </div>
+                            </div><br/>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="name">NAME</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" th:field="*{name}" class="form-control"/>
+                                </div>
+                            </div><br/>
+
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="descriptions">DESCRIPTION</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" th:field="*{descriptions}" class="form-control"/>
+                                </div>
+                            </div><br/>
+
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="price">PRICE</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" th:field="*{price}" class="form-control"/>
+                                </div>
+                            </div><br/>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="quantity">QUANTITY</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" th:field="*{quantity}" class="form-control"/>
+                                </div>
+                            </div><br/>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="categoryId">CATEGORY_ID</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" th:field="*{categoryId}" class="form-control"/>
+                                </div>
+                            </div><br/>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="brandId">BRAND_ID</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" th:field="*{brandId}" class="form-control"/>
+                                </div>
+                            </div><br/>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="imageId">IMAGE_ID</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" th:field="*{imageId}" class="form-control"/>
+                                </div>
+                            </div><br/>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="status">STATUS</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" th:field="*{status}" class="form-control"/>
+                                </div>
+                            </div><br/>
+
+                            <button type="submit" class="btn btn-success">Update <i class="fa fa-wrench" aria-hidden="true"></i></button>
+                            <a th:href="@{/admin/products/list_all}" class= "btn btn-primary">Show All Product</a>
+                    </div>
+                    </form>
+
+                </div>
+                </div>
+
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <th:block th:insert="~{fragments/modal }"></th:block>
+    <th:block th:insert="~{fragments/ad_footer::script}"></th:block>
+</body>
+
+</html>

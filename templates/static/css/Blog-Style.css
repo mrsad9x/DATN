@@ -1,0 +1,248 @@
+html{
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+.Thang-container-blog{
+    width: 1140px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 15px 15px 15px 15px;
+    margin: auto;
+    
+}
+.Thang-account-banner {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(/Resources/Img/product-detail-img/insde-theme.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    max-width: 1920px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Montserrat';
+    letter-spacing: 3px;
+    margin-bottom: 80px;
+}
+.Thang-container-blog-1{
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin-right: 15px;
+}
+.Thang-container-blog-2{
+    display: block;
+    width: 360px;
+    height: 600px;
+    margin-left: 15px;
+}
+
+.Thang-blog-list{
+    width: 750px;
+    margin-bottom: 60px;
+}
+.Thang-blog-figure{
+    width: 750px;
+    height: 440px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.Thang-blog-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1);
+}
+.Thang-blog-img:hover {
+    transform: scale(1.1);
+    Transition: 0.5s;
+}
+.Thang-blog-1{
+    background-color: white;
+    width: 750px;
+    /* height: 300px; */
+    /* z-index: 0; */
+    /* margin: 0 auto; */
+    /* position :absolute; */
+    /* margin: -80px 0px 0px 30px; */
+    padding: 0px 60px 0px 60px;
+    /* opacity: 0.8; */
+    /* margin-top: -50px; */
+}
+.Thang-icon{
+    margin-top: 30px;
+    display: block;
+
+}
+.Thang-blog-text1{
+    
+    display: block;
+    margin-bottom: 15px;
+    font-size: 1%;
+}
+.Thang-icon span{
+    margin-right: 30px;
+}
+.Thang-blog-button{
+    border: 2px solid black;
+    font-size: 16px;
+    display: block;
+    padding: 10px 25px;
+    width: fit-content;
+    color: black;
+  
+}
+.Thang-blog-button:hover{
+    color: white;
+    background: black;
+    transition: 0.5s;
+}
+.Thang-blog-Loren{
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: justify;
+}
+a{
+    text-decoration: none
+}
+.Thang-blog-search-button{
+    float: right;
+    width: 20%;
+    padding: 10px;
+    background: black;
+    color: white;
+    font-size: 16px;
+    border: 1px solid grey;
+
+    cursor: pointer;
+}
+.Thang-blog-search-button:hover{
+    background: #ffc400;
+    color: black;
+}
+#Thang-Search-input{
+    padding: 10px;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    border: 1px solid grey;
+    font-size: 16px;
+}
+.Thang-p1{
+    width: 360px;
+    height: 45px;
+    margin-bottom: 50px;
+    display: block;
+}
+.Thang-p2{
+    margin-bottom: 50px;
+    display: block;
+}
+.Thang-p2-1{
+    width: 100%;
+    padding-bottom: 10px;
+    display: block;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+.Thang-rcm{
+    width: 100%;
+    padding-bottom: 10px;
+    display: block;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+ul{
+    list-style: none;
+}
+.Thang-p3{
+    width: 360px;
+    margin-bottom: 45px;
+    display: block;
+}
+.Thang-p4{
+    margin-bottom: 50px;
+    display: block;
+}
+.Thang-p5{
+    margin-bottom: 50px;
+    display: block;
+} 
+.Thang-p5 ul li, .Thang-p3 ul li, .Thang-p2 ul li {
+    margin: 10px 0;
+}
+.Thang-Blog-Tag-1{
+    border: 1px solid #aaa;
+    display: inline-block;
+    margin: 0 0.03em 0.3em 0;
+    padding: 0.4em 0.88em 0.35em;
+    background-color: #fff;
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #555;
+}
+.Thang-Blog-Tag-1:hover{
+    color: #fff;
+    background: black;
+}
+.Thang-Blog-Tag-2{
+    border: 1px solid #aaa;
+    display: inline-block;
+    margin: 0 0.03em 0.3em 0;
+    padding: 0.4em 0.88em 0.35em;
+    background-color: #fff;
+    font-size: 30px;
+    color: #555;
+}
+.Thang-Blog-Tag-2:hover{
+    color: #fff;
+    background: black;
+}
+.Thang-Blog-Tag-3{
+    border: 1px solid #aaa;
+    display: inline-block;
+    margin: 0 0.03em 0.3em 0;
+    padding: 0.4em 0.88em 0.35em;
+    background-color: #fff;
+    font-size: 20px;
+    color: #555;
+}
+.Thang-Blog-Tag-3:hover{
+    color: #fff;
+    background: black;
+}
+.Thang-Page-1{
+    width: 40px;
+    text-align: center;
+    line-height: 1;
+    padding: 10.4px 0 12px;
+    border: 1px solid;
+    border-radius: 5px;
+    display: block;
+    float: left;
+    margin-right: 0px;
+}
+.Thang-Page-2, .Thang-Page-3,.Thang-Page-4{
+    width: 40px;
+    text-align: center;
+    line-height: 1;
+    padding: 10.4px 0 12px;
+    border: 1px solid;
+    border-radius: 5px;
+    display: block;
+    float: left;
+    margin-left: 7px;
+}
+.Thang-Page-1:hover, .Thang-Page-2:hover, .Thang-Page-3:hover,.Thang-Page-4:hover{
+    color: black ;
+    background-color: #ffc400;
+}
+.Thang-Page{
+    width: 100%;
+    height: 50px;
+    display: block;
+}
+

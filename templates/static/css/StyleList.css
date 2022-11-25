@@ -1,0 +1,231 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h2{
+    color: #151514;
+	font-family: Montserrat;
+    font-size: 34px;
+}
+.thien-banner{
+    background-image: url(http://furnihaus.kaththemes.com/demo/wp-content/uploads/2018/04/6607-1.jpg);
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+}
+.thien-inner{
+    text-align: center;
+    position: absolute;
+    display: table;
+    width: 100%;
+    text-align: center;
+}
+.thien-inner h2{
+    color: #fff;
+    font-weight: 400;
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin-top: 100px;
+}
+.thien-list-button{
+    font-size: 30px;
+    color:#fff;
+    background-color: #333;
+    border-color: #ccc;
+}
+.thien-list-button:hover{
+    cursor: pointer;
+    background-color:orange;
+}
+.thien-grid-button{
+    font-size: 30px;
+    color:#fff;
+    background-color: #333;
+    border-color: #ccc;
+}
+.thien-grid-button:hover{
+    cursor: pointer;
+    background-color:orange;
+}
+.thien-sorting-by-bar{
+    /* margin-left: 200px;
+    margin-right: 200px; */
+}
+
+.thien-dropbtn {
+    background-color: white;
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid black;
+  }
+  
+  .thien-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+.thien-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+.thien-dropdown-content a {
+    color: black;
+    padding: 5px 6px;
+    text-decoration: none;
+    display: block;
+  }
+  
+.thien-dropdown-content a:hover {
+    background-color: white;
+    color: grey;
+    cursor: pointer;
+  }
+  
+.thien-dropdown:hover .thien-dropdown-content {
+    display: block;
+  }
+  
+.thien-dropdown:hover .thien-dropbtn {
+    background-color:grey;
+  }
+.thien-menu{
+  position: absolute;
+  z-index: 1;
+  overflow-x: hidden;
+  padding: 8px 0;
+  background-color: lightgrey;
+}
+.thien-menu h2{
+    font-size:  30px;
+    margin-bottom: 7px;
+    border-bottom: 2px solid grey;
+    margin-right: 10px;
+}
+.thien-menu ul{
+    list-style-type:none;
+    margin:0px;
+    padding:0px;
+    text-align: left;
+}
+.thien-menu li{
+    margin: 0px 0px 10px 0px;
+    position: relative;
+}
+.thien-menu a{
+    text-decoration:none;
+    line-height:25px;
+    color:#333333;
+    display:block;
+    width:180px;
+    border-top:1px;
+    border-bottom:1px;
+    padding-left:15px;
+}
+
+.thien-menu a:hover{
+   color:forestgreen;
+   background-color:cyan;
+}
+.thien-sub-menu{
+    position: absolute;
+    left: 150px;
+    top: 0;
+    display: none;
+    z-index: 2;
+}
+.thien-menu li:hover .thien-sub-menu{
+    display: block;
+    color: forestgreen;
+    background-color: grey;
+  }
+.thien-list-wrapper{
+     margin-left: 320px;
+    
+}
+#thien-list-col{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+#thien-list-col p{
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+#thien-list-col a{
+    text-decoration: none;
+    color: black;
+    font-size: large;
+}
+#thien-list-col a:hover{
+    color:mediumspringgreen;
+}
+#thien-list-col img{
+    border: 10px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+#thien-list-col img:hover{
+    transform: scale(1.1);
+    transition: all ease-in-out 0.5s;
+    cursor: pointer;
+}
+
+.thien-main-content {
+    display: flex;
+}
+
+.thien-main-content .thien-menu {
+    width: 20%;
+    margin-top: 100px;
+}
+
+.thien-main-content .thien-main-list-wrapper {
+    width: 80%;
+}
+
+.thien-sort-by {
+    width: 100%;
+    position: relative;
+    background-color:silver;
+    margin-top: 100px;
+}
+
+.thien-sort-by p {
+    display: inline;
+}
+
+.thien-group-btn {
+    position: absolute;
+    right: 0%;
+    display: inline;
+}
+.thien-sorting-by-bar{
+    margin-left: 300px;
+}
+.thien-pagination{
+    margin-top: 50px;
+    margin-left: 500px;
+}
+.thien-pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+  }
+.thien-pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+  }
+.thien-pagination a:hover:not(.active) {
+    background-color: #ddd;
+  }

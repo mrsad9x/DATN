@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+    <th:block th:insert="~{fragments/ad_header::link}"></th:block>
+</head>
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+    <th:block th:insert="~{fragments/sidebar }"></th:block>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <th:block th:insert="~{fragments/topbar }"></th:block>
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800">Promotion</h1>
+                <p class="mb-4"></p>
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex align-items-center">
+                        <h6 class="m-0 font-weight-bold text-primary mr-3">Add Promotion</h6>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/savePromotions}" method="post" th:object="${promotions}">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="name">Product ID</label> <input type="text"
+                                                                                class="form-control" id="name" placeholder="Name" th:field="*{pid}" >
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="code">Code Promotion</label> <input
+                                        type="text" class="form-control" id="code"
+                                        placeholder="" th:field="*{code}">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="Start_date">Start Date</label> <input type="text"
+                                                                                    class="form-control" id="start_date"
+                                                                                    placeholder="yyyy-mm-dd hh:mm:ss" th:field="*{start_date}">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="End_date">End Date</label> <input type="text"
+                                                                                  class="form-control" id="End_date"
+                                                                                  placeholder="yyyy-mm-dd hh:mm:ss" th:field="*{end_date}"></input>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="text">Sale </label> <input  type="text"
+                                                                             class="form-control" id="text"
+                                                                             placeholder="sales" th:field="*{sales}"></input>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="description">description</label> <input  type="text"
+                                                                                   class="form-control" id="description"
+                                                                                   placeholder="description" th:field="*{description}"></input>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <th:block th:insert="~{fragments/modal }"></th:block>
+    <th:block th:insert="~{fragments/ad_footer::script}"></th:block>
+    </div>
+</body>
+
+</html>

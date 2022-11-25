@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Order Manager</title>
+</head>
+<body>
+	<div align="center">
+		<h1><a th:href="@{/order/list}">Order List</a></h1>
+		<a href="/order/add">Create New Order</a> 
+		<br /><br />
+		<form th:action="@{/order/search}">
+			<input type="text" th:name="id" />
+			<input type="submit" value="Search"/>
+		</form>
+		<br /><br />
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>Order ID</th>
+					<th>Create At</th>
+					<th>Total</th>
+					<th>Customer</th>
+					<th>Receiver</th>
+					<th>Address</th>
+					<th>Phone</th>
+					<th>Payment Method</th>
+					<th>Status</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="order : ${listOrders}">
+					<td th:text="${order.id}"></td>
+					<td th:text="${order.createDate}"></td>
+					<td th:text="${order.total}"></td>
+					<td th:text="${order.getUser().getFirstname()} + ' ' + ${order.getUser().getLastname()}"></td>
+					<td th:text="${order.receiver}"></td>
+					<td th:text="${order.address}"></td>
+					<td th:text="${order.phone}"></td>
+					<td th:text="${order.getPayment().getName()}"></td>
+					<td th:text="${order.status}==0?'Đang giao':(${order.status}==1?'Đã giao':'Đã hủy')"></td>
+		            <td>
+		<!--     		<a th:href="@{'/order/edit/' + ${order.id}}">Edit</a>    -->	
+						&nbsp;&nbsp;&nbsp; 
+		<!--			<a th:href="@{'/order/delete/' + ${order.id}}">Delete</a>   -->
+						<a th:href="@{'/order/changeStatus/' + ${order.id}}">Change status</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

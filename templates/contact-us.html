@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | Durable Furniture</title>
+  <link rel="stylesheet" href="/css/header-footer-min.css">
+  <link rel="stylesheet" href="/css/home-page-min.css">
+  <link rel="stylesheet" href="/css/home-page-media-min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <!-- css, RPS Contact us Thắng -->
+
+  <link rel="stylesheet" href="/css/contact-us-min.css">
+  <link rel="stylesheet" href="/css/contact-us-media-min.css">
+
+</head>
+
+<body>
+  <div class="vinh-container">
+    <div class="vinh-free-shipping-container">
+      <div class="vinh-free-shipping-wrap">
+        <div class="vinh-free-shipping-item">
+          <span class="vinh-free-shipping-emp">free-shipping</span> for orders above $100!!!
+        </div>
+        <div class="vinh-free-shipping-item">
+          <span class="vinh-free-shipping-emp">free-shipping</span> on your first order!!!
+        </div>
+        <div class="vinh-free-shipping-item">
+          <span class="vinh-free-shipping-emp">call us</span> for more information 043-235-2561
+        </div>
+      </div>
+      <div class="vinh-find-store">
+        <a href="/find_store" style="color: white;">Find a store</a> <i class="bi bi-geo-alt"></i>
+      </div>
+    </div>
+    <header>
+      <div class="vinh-header-wrap" id="navbar">
+        <div class="vinh-inner-container">
+          <div class="vinh-sub-menu">
+            <i id="myIcon" onclick="subMenuFunction()" class="bi bi-list" style="font-size: 150%;"></i>
+          </div>
+          <a href="/home"><img class="vinh-logo"
+              src="Resources/Img/header-footer-img/Dark Slate Grey Star Icon Business Logo web.png"></a>
+        </div>
+        <div class="vinh-inner-container vinh-menu">
+          <ul class="vinh-menu-list">
+            <li class="vinh-drop-down">
+              <a class="vinh-menu-style" href="/home">Home</a>
+            </li>
+            <li class="vinh-drop-down">
+              <a class="vinh-menu-style" href="/frato">Furniture</a>
+              <div class="vinh-drop-down-content vinh-furniture">
+                <div class="vinh-drop-down-item">
+                  <img src="Resources/Img/header-footer-img/hugo_noblanket_600x500.jpg">
+                  <h3>Living Room</h3>
+                  <ul>
+                    <li><a href="/frato">Sofas</a></li>
+                    <li><a href="/frato">Loveseats</a></li>
+                    <li><a href="/frato">Sectionals</a></li>
+                    <li><a href="/frato">Chairs & Chaises</a></li>
+                    <li><a href="/frato">Sofa Beds & Futons</a></li>
+                    <li><a href="/frato">Recliners</a></li>
+                    <li><a href="/frato">Ottoman & Benches</a></li>
+                    <li><a href="/frato">Cabinets & Etageres</a></li>
+                    <li><a href="/frato">Living Room Packages</a></li>
+                    <li><a href="/frato">3 Piece Sofa Set</a></li>
+                  </ul>
+                </div>
+                <div class="vinh-drop-down-item">
+                  <img src="Resources/Img/header-footer-img/juneau_dining_horizontal_600x.jpg">
+                  <h3>Dining Room</h3>
+                  <ul>
+                    <li><a href="/frato">Dining Sets</a></li>
+                    <li><a href="/frato">Chairs</a></li>
+                    <li><a href="/frato">Benches</a></li>
+                    <li><a href="/frato">Counter & Bar Stools</a></li>
+                    <li><a href="/frato">Buffets & Sideboards</a></li>
+                    <li><a href="/frato">China Cabinets & Curious</a></li>
+                    <li><a href="/frato">Bars</a></li>
+                    <li><a href="/frato">Modern Dining</a></li>
+                    <li><a href="/frato">Custom Designed Table</a></li>
+                    <li><a href="/frato">6 Seater Dining</a></li>
+                  </ul>
+                </div>
+                <div class="vinh-drop-down-item">
+                  <img src="Resources/Img/header-footer-img/juneau_bed_v1_600x.jpg">
+                  <h3>Bed Room</h3>
+                  <ul>
+                    <li><a href="/frato">King Beds</a></li>
+                    <li><a href="/frato">Queen Beds</a></li>
+                    <li><a href="/frato">Full Beds</a></li>
+                    <li><a href="/frato">Daybeds & Futons</a></li>
+                    <li><a href="/frato">Headboards & Frames</a></li>
+                    <li><a href="/frato">Dressers & Chests</a></li>
+                    <li><a href="/frato">Mirros</a></li>
+                    <li><a href="/frato">Nightstands</a></li>
+                    <li><a href="/frato">Armoires</a></li>
+                    <li><a href="/frato">Bedroom Sets</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="vinh-drop-down">
+              <a class="vinh-menu-style" href="/brand">Brands</a>
+              <div class="vinh-drop-down-content vinh-brand">
+                <div class="vinh-drop-down-item">
+                  <a href="/brand">Essential Home</a>
+                </div>
+                <div class="vinh-drop-down-item">
+                  <a href="/brand">Frato</a>
+                </div>
+                <div class="vinh-drop-down-item">
+                  <a href="/brand">Koket</a>
+                </div>
+                <div class="vinh-drop-down-item">
+                  <a href="/brand">Erado</a>
+                </div>
+                <div class="vinh-drop-down-item">
+                  <a href="/brand">Bentley Home</a>
+                </div>
+                <div class="vinh-drop-down-item">
+                  <a href="/brand">Capellini</a>
+                </div>
+              </div>
+            </li>
+            <li class="vinh-drop-down">
+              <a class="vinh-menu-style" href="/blog">Blog</a>
+            </li>
+            <li class="vinh-drop-down">
+              <a class="vinh-menu-style" href="/contact-us">Contact us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="vinh-inner-container">
+          <ul class="vinh-icon-list">
+            <li id="search-bar" class="collapsed">
+              <div id="search-box">
+                <div id="sliding-panel-outer">
+                  <form th:action="@{/search}" method="get">
+                    <div id="sliding-panel-inner">
+                      <input type="text" id="search-input" th:value="${str}"
+                             placeholder="Search..." name="str" required/>
+                      <button type="submit"></button>
+                    </div>
+                  </form>
+                  <!--#sliding-panel-inner-->
+                </div>
+                <!--#sliding-panel-outer-->
+
+                <div class="search-label">
+                  <i id="search-one" class="bi bi-search"></i>
+                </div>
+              </div>
+              <!--#search-box-->
+            </li>
+            <!--#searchbar-->
+            <li>
+              <a href="/wishlist"><i class="bi bi-heart"></i></a>
+            </li>
+            <li class="vinh-cart" style="position: relative;">
+              <a href="/cart"><i class="bi bi-cart3"></i></a>
+              <div class="vinh-cart-drop-down">
+                <p>Your shopping cart (2 items)</p>
+                <div style="margin: 15px 0;">
+                  <div class="vinh-cart-item">
+                    <figure class="vinh-promo-pic">
+                      <img class="vinh-pic"
+                        src="Resources/Img/product-cart-wish-img/frato-metal-classic-out-door-dining-chair-(1).jpg" />
+                    </figure>
+                    <span>Frato Metal Classic Out Door Dining Chair</span>
+                    <span>1 x $83.00</span>
+                    <i class="bi bi-x-circle"></i>
+                  </div>
+                  <div class="vinh-cart-item">
+                    <figure class="vinh-promo-pic">
+                      <img class="vinh-pic"
+                      src="Resources/Img/product-cart-wish-img/rattan-modern-dining-chair-(13).jpg" />
+                    </figure>
+                    <span>Frato Rattan Modern Dining Chair</span>
+                    <span>1 x $38.00</span>
+                    <i class="bi bi-x-circle"></i>
+                  </div>
+                  <div class="subtotal">
+                    <p>Cart Subtotal:</p>
+                    <p>$121.00</p>
+                  </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between;">
+                  <a class="vinh-button" href="/cart">View Cart</a>
+                  <a class="vinh-button" href="/checkout">Check Out</a>
+                </div>
+              </div>
+            </li>
+            <li><a th:href="${userLink}" th:text="${userStatus}">Log in</a></li>
+            <li><a th:href="${loginLink}" th:text="${loginStatus}">Log in</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="myDropdown" class="vinh-sub-menu-dropdown">
+        <ul>
+          <li><a href="/home" style="color:#6CB975 !important">home</a></li>
+          <li><a href="/frato">furniture</a></li>
+          <li><a href="/brand">brand</a></li>
+          <li><a href="/blog">blog</a></li>
+          <li><a href="/contact-us">contact</a></li>
+          <li>
+            <input class="vinh-sub-menu-search" type="text" placeholder="Search...">
+            <button class="vinh-search-button" type="submit">Search</button>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Copy code vao day -->
+    <div>
+      <div class="Thang-contact-img">
+        <div class="Thang-contact-text">
+          <P>We're here for you.</P>
+          <h1>Contact Durable Furniture Care</h1>
+        </div>
+      </div>
+    </div>
+    <div class="Thang-container-contact">
+      <div class="Thang-contact-box">
+        <div class="Thang-contact-box-1">
+          <h3> Contact Us.</h3>
+        </div>
+        <div class="Thang-contact-box-2">
+          <div class="Thang-contact-card">
+            <div class="Thang-card-1">
+              <h4 class="Thang-card-2">Message us </h4>
+              <span class="Thang-card-3">Get support from Durable Furniture Experts, 24 hours a day, 7 days a
+                week.</span>
+              <div class="Thang-card-4">
+                <span><a class="Thang-card-a" href="mailto:Ducthang3496@gmail.com">Chat with us</a></span>
+              </div>
+            </div>
+          </div>
+          <!-- 2 -->
+          <div class="Thang-contact-card">
+            <div class="Thang-card-1">
+              <h4 class="Thang-card-2">Request service</h4>
+              <span class="Thang-card-3">Explore your service options, some of which can be handled fully online.</span>
+              <div class="Thang-card-4">
+                <span><a class="Thang-card-a" href="mailto:Ducthang3496@gmail.com">Get started</a></span>
+              </div>
+            </div>
+          </div>
+          <!-- 3 -->
+          <div class="Thang-contact-card">
+            <div class="Thang-card-1">
+              <h4 class="Thang-card-2">Help with your order</h4>
+              <span class="Thang-card-3">Get support or track the status of your order. Help you best manage.</span>
+              <div class="Thang-card-4">
+                <span><a class="Thang-card-a" href="mailto:Ducthang3496@gmail.com">Chat with us</a></span>
+              </div>
+            </div>
+          </div>
+          <!-- 4 -->
+          <div class="Thang-contact-card">
+            <div class="Thang-card-1">
+              <h4 class="Thang-card-2">Ask us on social</h4>
+              <span class="Thang-card-3">Contact us on Twitter or Facebook and we’ll reply with an answer to your
+                question
+                or issue.</span>
+              <div class="Thang-card-4">
+                <span><a class="Thang-card-a" href="mailto:Ducthang3496@gmail.com">Message us on Facebook</a></span>
+              </div>
+            </div>
+          </div>
+          <!-- 5 -->
+          <div class="Thang-contact-card">
+            <div class="Thang-card-1">
+              <h4 class="Thang-card-2">Ask the community</h4>
+              <span class="Thang-card-3">Browse answers, ask questions and get solutions from other Samsung
+                customers.</span>
+              <div class="Thang-card-4">
+                <span><a class="Thang-card-a" href="mailto:Ducthang3496@gmail.com">Join discussion</a></span>
+              </div>
+            </div>
+          </div>
+          <!-- 6 -->
+          <div class="Thang-contact-card">
+            <div class="Thang-card-1">
+              <h4 class="Thang-card-2">Message us </h4>
+              <span class="Thang-card-3">Get support from Durable Furniture Experts, 24 hours a day, 7 days a
+                week.</span>
+              <div class="Thang-card-4">
+                <span><a class="Thang-card-a" href="mailto:Ducthang3496@gmail.com">Chat with us</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="Thang-contact-map">
+          <div class="Thang-map-1">
+            <h4 class="Thang-card-2">Give us a call</h4>
+            <span class="Thang-card-3">Speak directly with a Furniture Care Pro or schedule a time for us to call you.
+              Furniture is working to support you and keep our staff safe. Because of this, our phone hours of operation
+              have changed.</br>
+              </br>
+              <b>Address</b></br>
+              Tầng 21 toà nhà Handico - Phạm Hùng, Mễ Trì, Nam Từ Liêm, Hà Nội, Việt Nam</br>
+              <br>
+              <b>Mobile support</b></br>
+              (+84) Không chín không tái - 0988950111</br>
+               </br>
+              <b>Email</b> </br>
+              <a class="Thang-card-a" href="mailto:Ducthang3496@gmail.com">Aptech.fpt@fe.edu.vn</a></br>
+               </br>
+              <b>IT & Computing support</b></br>
+              8 AM - 9 PM ET, Mon thru Fri</br>
+              Closed Sat and Sun</br>
+            </span>
+
+          </div>
+          <div class="Thang-map-2">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.4011714334206!2d105.77974121484677!3d21.016628286004927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab0d69594b35%3A0x56c7da1281efdc2f!2sHandico%20Tower!5e0!3m2!1svi!2s!4v1642669364000!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+
+        </div>ß
+      </div>
+    </div>
+
+    <!-- hết code  -->
+    <div id="hong-scroll-top-btn" onclick="hongScrollTop()">
+      <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <div class="vinh-container-footer"></div>
+    <footer>
+      <div class="ft-social vinh-info">
+        <div class="ft-main-item">
+          <h3 class="ft-title">About the company</h3>
+          <ul>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Affiliates</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Investor Ralations</a></li>
+          </ul>
+        </div>
+        <div class="ft-main-item">
+          <h3 class="ft-title">Customer Service</h3>
+          <ul>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/faq">Help Center</a></li>
+            <li><a href="#">Shopping Guide</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="mailto:vinhtb.jp@gmail.com">Email us</a></li>
+          </ul>
+        </div>
+        <div class="ft-main-item">
+          <h3 class="ft-title">Site Terms</h3>
+          <ul>
+            <li><a href="#">Sitemap</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Terms of Sale</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Shop Glossary</a></li>
+          </ul>
+        </div>
+        <div class="ft-main-item">
+          <h3 class="ft-title">Newsletter Subcribe</h3>
+          <p style="margin-top: 10px;">Get 5% OFF when you signup for<br>our email newsletter!</p>
+          <div class="vinh-newsletter">
+            <form>
+              <input class="vinh-newsletter-input" type="email" name="email">
+            </form>
+            <i class="bi bi-envelope"></i>
+          </div>
+        </div>
+      </div>
+      <div class="ft-social-container">
+        <div class="ft-social vinh-sns">
+          <span>&copy; 2021 Durable Furniture. All rights reserved</span>
+          <div class="vinh-sns-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tumblr"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-migrate-3.3.2.min.js"
+    integrity="sha256-Ap4KLoCf1rXb52q+i3p0k2vjBsmownyBTE1EqlRiMwA=" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/957c836d53.js" crossorigin="anonymous"></script>
+
+  <script>
+    $('#search-bar .search-label').on('click', function (e) {
+      e.preventDefault();
+      $('#search-bar').toggleClass('collapsed');
+    });
+
+    function subMenuFunction() {
+      document.getElementById('myDropdown').classList.add('vinh-show')
+    }
+
+    window.onclick = function (event) {
+      if (!event.target.matches('.bi-list')) {
+        var dropdowns = document.getElementsByClassName('vinh-sub-menu-dropdown');
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('vinh-show')) {
+            openDropdown.classList.remove('vinh-show');
+          }
+        }
+      }
+    }
+
+    document.getElementById("myIcon").onclick = function () {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    };
+
+    window.onscroll = function () { myFunction() };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    hScrollTopBtn = document.getElementById("hong-scroll-top-btn");
+
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("vinh-sticky")
+      } else {
+        navbar.classList.remove("vinh-sticky");
+      }
+
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        hScrollTopBtn.style.display = "block";
+      } else {
+        hScrollTopBtn.style.display = "none";
+      }
+    }
+
+    function hongScrollTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    };
+  </script>
+
+</body>
+
+</html>

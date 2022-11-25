@@ -4,6 +4,7 @@ import "github.com/spf13/viper"
 
 type Server struct {
 	Database `mapstructure:"Database"`
+	Token    `mapstructure:"Token"`
 }
 
 func Init(path, fileName string) (*Server, error) {

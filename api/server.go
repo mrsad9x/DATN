@@ -5,6 +5,7 @@ import (
 	"DATN/controller"
 	"DATN/repository"
 	"DATN/service"
+	"DATN/token"
 	"fmt"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -12,15 +13,21 @@ import (
 )
 
 type Server struct {
-	cfg   *configs.Server
-	route *gin.Engine
+	cfg        *configs.Server
+	route      *gin.Engine
+	tokenMaker token.Maker
 }
 
-func New(cfg *configs.Server) *Server {
-	return &Server{
-		cfg:   cfg,
-		route: gin.Default(),
+func New(cfg *configs.Server) (*Server, error) {
+	tokenMaker, err := token.NewPasetoMaker(cfg.TokenSymmetricKey)
+	if err != nil {
+		return nil, fmt.Errorf("can not create token maker: %w", err)
 	}
+	return &Server{
+		cfg:        cfg,
+		route:      gin.Default(),
+		tokenMaker: tokenMaker,
+	}, nil
 }
 
 func (s *Server) Start() error {
@@ -34,14 +41,19 @@ func (s *Server) Start() error {
 	err = s.route.SetTrustedProxies(nil)
 
 	userRepo := repository.NewSQLNguoiDung(db)
-	userService := service.NewUserService(userRepo)
+	userService := service.NewUserService(userRepo, s.tokenMaker, s.cfg)
 	userController := controller.NewUserController(userService)
 	userController.SetRouterUserController(s.route)
 
-	prodRepo := repository.NewSQLSanPham(db)
+	prodRepo := repository.NewSQLProduct(db)
 	prodService := service.NewProducService(prodRepo)
 	prodController := controller.NewProductController(prodService)
 	prodController.SetRouterSanPhamController(s.route)
+
+	homeRepo := repository.NewSQLHome(db)
+	homeService := service.NewHomeService(homeRepo)
+	homeController := controller.NewHomeController(homeService)
+	homeController.SetRouterHomeController(s.route)
 
 	s.route.LoadHTMLGlob("templates/*.html")
 	s.route.Use(cors.Default())

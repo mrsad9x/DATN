@@ -12,7 +12,11 @@ func main() {
 		log.Print(err.Error())
 		return
 	}
-	server := api.New(cfg)
+	server, err := api.New(cfg)
+	if err != nil {
+		log.Println(err.Error())
+		return
+	}
 	err = server.Start()
 
 }

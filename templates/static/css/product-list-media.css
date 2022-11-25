@@ -1,0 +1,32 @@
+@media screen and (max-width: 854px) {
+    #thien-wrapper {grid-template-columns: 100%; width: 85%;}
+    #thien-menu {display: none !important; }
+    #thien-content {padding: 0}
+    .thien-main-list-wrapper {width: 100%; font-size: 75%;}
+    .thien-main-list-wrapper p:first-child {font-size: .73em !important; margin-top: 10px;}
+    .thien-btn-product {font-size: 1.2em !important; margin: 0 !important;}
+    .thien-main-list-wrapper p {margin: 0 5px;}
+    .thien-main-list-wrapper figure {height: 32vw}
+}
+
+@media screen and (max-width: 535px) {
+    .thien-main-list-wrapper {grid-template-columns: 1fr !important;}
+    .thien-btn-product {padding: 4px 7px;}
+    .thien-product {height: 80vw;}
+    .thien-main-list-wrapper {column-gap: 15px; row-gap: 10px}
+    .thien-main-list-wrapper figure {height: 60vw;}
+    .test {display: none !important}
+}
+
+@media screen and (max-width: 375px) {
+    .thien-product{height: 87vw;}
+}
+@media screen and (max-width: 320px) {
+    .thien-product{height: 90vw;}
+}
+@media screen and (max-width: 1419px) {
+    .thien-main-list-wrapper p {font-size: 88%;}
+}
+@media screen and (max-width: 1288px) {
+    .thien-main-list-wrapper {grid-template-columns: 1fr 1fr;}
+}

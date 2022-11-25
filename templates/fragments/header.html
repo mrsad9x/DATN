@@ -1,0 +1,46 @@
+
+<header class="header" id="header">
+	<nav class="nav container">
+		<a href="/" class="nav__logo"> <img src="/images/logo-3.png"
+			alt="" class="nav__logo-img" /> ShopDD
+		</a>
+		<div class="nav__menu" id="nav-menu">
+			<ul class="nav__list">
+				<li class="nav__item"><a href="/" class="nav__link active-link"
+					onclick="dodajAktywne(this)">Home</a></li>
+				<li class="nav__item"><a href="/shop/0"
+					onclick="dodajAktywne(this)" class="nav__link">Shop</a></li>
+				<li class="nav__item"><a href="/about"
+					onclick="dodajAktywne(this)" class="nav__link">About</a></li>
+				<li class="nav__item"><a href="/contact"
+					onclick="dodajAktywne(this)" class="nav__link">Contact</a></li>
+
+				<!-- <a href="" class="button button--ghost">Support</a> -->
+			</ul>
+
+			<div class="nav__close" id="nav-close">
+				<i class="bx bx-x"></i>
+			</div>
+		</div>
+		<div class="nav__btns">
+			<!-- Theme change button -->
+
+			<div class="nav__shop" id="cart-shop">
+				<a href="/cart" style="color:white"><i class="bx bx-shopping-bag"></i> </a>
+			</div>
+
+			<div class="nav__shop" id="info-user">
+				<i class="bx bx-user"></i>
+			</div>
+
+		</div>
+	</nav>
+</header>
+
+<div class="info" id="info">
+	<i class="bx bx-x info__close" id="info-close"></i>
+	<div class="info__btn">
+		<a href="/login" class="button">Đăng nhập</a> <a href="/register"
+			class="button">Đăng Ký</a>
+	</div>
+</div>

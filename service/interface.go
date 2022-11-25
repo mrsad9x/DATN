@@ -16,3 +16,19 @@ type IProductService interface {
 	AlterProduct(id, idDM int, tenSP string, giaBan, giaNhap float64, soLuong int, mota string) error
 	DeleteSoftProduct(id int) error
 }
+
+type IHomeService interface {
+	Home() ([]model.SanPham, error)
+}
+
+type ICategoriesService interface {
+}
+
+type ICartService interface {
+}
+
+type IOrderService interface {
+}
+
+type IPromotionService interface {
+}

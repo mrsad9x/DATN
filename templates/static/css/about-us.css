@@ -1,0 +1,254 @@
+body, html {
+    margin: 0;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  }
+
+.quan-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+#story{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 600px;
+    background-image: url("/Resources/Img/aboutus-img/ourstory.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+.story-text {
+    padding: 20px 50px;
+    background-color: white;
+    width: fit-content;
+}
+
+.quan-wrap {
+    width: 100%;
+    overflow: hidden;
+}
+
+.startab{
+    width: 80%;
+    max-width: 1000px;
+    margin: 110px auto 240px auto;
+    text-align: center;
+    font-family: 'Poppins';
+}
+
+.startab h1 {
+    font-family: 'Montserrat';
+    font-size: 2.5em;
+    padding-bottom: 30px;
+}
+
+.startab p {
+    color: #666;
+    text-align: justify;
+}
+
+.quote{
+    width: 100%;
+    height: 800px;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/Resources/Img/aboutus-img/quote.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+#cauquote{
+    text-align: left;
+    font-size: 120%;
+    font-weight: 300;
+    font-style: italic;
+    padding: 40px 40px 30px 55px;
+    color: white;
+    width: 540px;
+    height: 350px;
+    background-color: #6CB975;
+    z-index: 100;
+    position: absolute;
+    top: -200px;
+    left: 300px;
+}
+
+.quotetext{
+    quotes: "“" "„";
+}
+
+#cauquote h2 {
+    line-height: 180%;
+}
+
+.slogan{
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1180px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.slogan-grid-container{
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+.slogan-img {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.slogan-img img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slogan-grid{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.tittle-h3 {
+    text-align: left;
+    font-size: 120%;
+    padding-bottom: 20px;
+    color: #000000;
+}
+
+#statistical {
+    width: 100%;
+    height: 100%;
+    background-color: #6cb975;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    margin: 0 auto;
+}
+
+.statistical-grid {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
+}
+
+.statistical-grid-1{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.statistical-img {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+    margin: 0 auto;
+}
+
+.statistical-img a{
+    position:relative;
+    top: 15px;
+    left: -150px;
+    font-size: 110%;
+    color: #dcf7df;
+}
+
+.statistical-text{
+    width: 80%;
+    height: 100%;
+    position:relative;
+    top: 15px;
+    left: 65px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    color: rgba(255, 255, 255, 0.932);
+}
+
+.clients{
+    width: 100%;
+    max-width: 1180px;
+    padding-top: 100px;
+    margin: 0 auto;
+}
+
+.grid2-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 130px;
+    row-gap: 70px;
+    width: 100%;
+}
+
+.client-icon{
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+}
+
+
+#team{
+    width: auto;
+    height: 600px;
+    margin-bottom: 100px;
+    padding-top: 100px;
+}
+
+#quan-ourteam{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.grid1-container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.quan-photo {
+    width: 100%;
+    height: 240px;
+    margin: 0;
+}
+
+.quan-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.vinh-section-teller {
+    font-weight: 400;
+    font-size: 240%;
+    margin-bottom: 50px;
+}
+
+.vinh-section-teller::after {
+    display: block;
+    content: "";
+    width: 30px;
+    height: 3px;
+    background-color: #ec7264;
+    margin: 5px auto;
+}

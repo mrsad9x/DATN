@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+    <th:block th:insert="~{fragments/ad_header::link}"></th:block>
+</head>
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+    <th:block th:insert="~{fragments/sidebar }"></th:block>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <th:block th:insert="~{fragments/topbar }"></th:block>
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800">Product</h1>
+                <p class="mb-4"></p>
+
+                <div class="card">
+                    <div class="card-header py-3 d-flex align-items-center">
+                        <h6 class="m-0 font-weight-bold text-primary mr-3">Add Product</h6>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/admin/products/save_product}" method="POST" th:object="${product}" id="productForm">
+                            <div class="row">
+                                <div class="col-2">
+                                    <label for="name"><b>Name</b></label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="text" th:field = "${product.name}" name="name" id="name"
+                                           class="form-control" />
+                                </div>
+                            </div> <br/>
+
+
+                            <div class="row">
+                                <div class="col-2">
+                                    <label for="description"><b>Descriptions</b></label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="text" th:field = "${product.descriptions}" name="description" id="description"
+                                           class="form-control" />
+                                </div>
+                            </div><br/>
+
+                            <div class="row">
+                                <div class="col-2">
+                                    <label for="price"><b>Price</b></label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="text" th:field = "${product.price}" name="price" id="price"
+                                           class="form-control" />
+                                </div>
+                            </div> <br/>
+
+                            <div class="row">
+                                <div class="col-2">
+                                    <label for="quantity"><b>Quantity</b></label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="text" th:field = "${product.quantity}" name="quantity" id="quantity"
+                                           class="form-control" />
+                                </div>
+                            </div> <br/>
+
+                            <div class="row">
+                                <div class="col-2">
+                                    <label class = "my-1 mr-2" for="category"><b>Category</b></label>
+                                </div>
+
+                                    <div class="col-8">
+                                <select th:field ="${product.categoryId}" id = category>
+                                    <option th:each="categories : ${categoriesList}"
+                                            th:value="${categories.getId()}" th:text="${categories.getName()}"></option>
+                                </select>
+                                </div>
+
+                            </div> <br/>
+
+                            <div class="row">
+                                <div class="col-2">
+                                    <label class = "my-1 mr-2" for="brand"><b>Brand</b></label>
+                                </div>
+
+                                <div class="col-8">
+                                    <select th:field ="${product.brandId}" id = brand>
+                                        <option th:each="brand : ${brandList}"
+                                                th:value="${brand.getId()}" th:text="${brand.getName()}"></option>
+                                    </select>
+                                </div>
+
+                            </div> <br/>
+
+                            <div class="row">
+                                <div class="col-2">
+                                    <label for="imageId"><b>Image ID</b></label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="text" name="imageId" id="imageId"
+                                           class="form-control" />
+                                </div>
+                            </div> <br/>
+
+                            <div class="row">
+                                <div class="col-2">
+                                    <label for="status"><b>Status</b></label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="text" name="status" id="status"
+                                           class="form-control"/ >
+                                </div>
+                            </div> <br/>
+
+
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <th:block th:insert="~{fragments/modal }"></th:block>
+    <th:block th:insert="~{fragments/ad_footer::script}"></th:block>
+</div>
+</body>
+
+</html>

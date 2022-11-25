@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product | Durable Furniture</title>
+
+    <link rel="icon" href="../Resources/Img/header-footer-img/Logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../Resources/Plug-in/fontawesome5.15.1/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/header-footer-min.css">
+    <link rel="stylesheet" href="../css/home-page-media-min.css">
+    <link rel="stylesheet" href="../css/product-detail-media-min.css">
+    <link rel="stylesheet" href="../css/product-detail-min.css">
+</head>
+
+<body>
+    <div class="vinh-container">
+        <div class="vinh-free-shipping-container">
+            <div class="vinh-free-shipping-wrap">
+              <div class="vinh-free-shipping-item">
+                <span class="vinh-free-shipping-emp">free-shipping</span> for orders above $100!!!
+              </div>
+              <div class="vinh-free-shipping-item">
+                <span class="vinh-free-shipping-emp">free-shipping</span> on your first order!!!
+              </div>
+              <div class="vinh-free-shipping-item">
+                <span class="vinh-free-shipping-emp">call us</span> for more information 043-235-2561
+              </div>
+            </div>
+            <div class="vinh-find-store">
+              <a href="/find_store" style="color: white;">Find a store</a> <i class="bi bi-geo-alt"></i>
+            </div>
+          </div>
+          <header>
+            <div class="vinh-header-wrap" id="navbar">
+              <div class="vinh-inner-container">
+                <div class="vinh-sub-menu">
+                  <i id="myIcon" onclick="subMenuFunction()" class="bi bi-list" style="font-size: 150%;"></i>
+                </div>
+                <a href="/home"><img class="vinh-logo"
+                    src="../../Resources/Img/header-footer-img/Dark Slate Grey Star Icon Business Logo web.png"></a>
+              </div>
+              <div class="vinh-inner-container vinh-menu">
+                <ul class="vinh-menu-list">
+                  <li class="vinh-drop-down">
+                    <a class="vinh-menu-style" href="/home">Home</a>
+                  </li>
+                  <li class="vinh-drop-down">
+                    <a class="vinh-menu-style" href="/frato">Furniture</a>
+                    <div class="vinh-drop-down-content vinh-furniture">
+                      <div class="vinh-drop-down-item">
+                        <img src="../Resources/Img/header-footer-img/hugo_noblanket_600x500.jpg">
+                        <h3>Living Room</h3>
+                        <ul>
+                          <li><a href="/frato">Sofas</a></li>
+                          <li><a href="/frato">Loveseats</a></li>
+                          <li><a href="/frato">Sectionals</a></li>
+                          <li><a href="/frato">Chairs & Chaises</a></li>
+                          <li><a href="/frato">Sofa Beds & Futons</a></li>
+                          <li><a href="/frato">Recliners</a></li>
+                          <li><a href="/frato">Ottoman & Benches</a></li>
+                          <li><a href="/frato">Cabinets & Etageres</a></li>
+                          <li><a href="/frato">Living Room Packages</a></li>
+                          <li><a href="/frato">3 Piece Sofa Set</a></li>
+                        </ul>
+                      </div>
+                      <div class="vinh-drop-down-item">
+                        <img src="../Resources/Img/header-footer-img/juneau_dining_horizontal_600x.jpg">
+                        <h3>Dining Room</h3>
+                        <ul>
+                          <li><a href="/frato">Dining Sets</a></li>
+                          <li><a href="/frato">Chairs</a></li>
+                          <li><a href="/frato">Benches</a></li>
+                          <li><a href="/frato">Counter & Bar Stools</a></li>
+                          <li><a href="/frato">Buffets & Sideboards</a></li>
+                          <li><a href="/frato">China Cabinets & Curious</a></li>
+                          <li><a href="/frato">Bars</a></li>
+                          <li><a href="/frato">Modern Dining</a></li>
+                          <li><a href="/frato">Custom Designed Table</a></li>
+                          <li><a href="/frato">6 Seater Dining</a></li>
+                        </ul>
+                      </div>
+                      <div class="vinh-drop-down-item">
+                        <img src="../Resources/Img/header-footer-img/juneau_bed_v1_600x.jpg">
+                        <h3>Bed Room</h3>
+                        <ul>
+                          <li><a href="/frato">King Beds</a></li>
+                          <li><a href="/frato">Queen Beds</a></li>
+                          <li><a href="/frato">Full Beds</a></li>
+                          <li><a href="/frato">Daybeds & Futons</a></li>
+                          <li><a href="/frato">Headboards & Frames</a></li>
+                          <li><a href="/frato">Dressers & Chests</a></li>
+                          <li><a href="/frato">Mirros</a></li>
+                          <li><a href="/frato">Nightstands</a></li>
+                          <li><a href="/frato">Armoires</a></li>
+                          <li><a href="/frato">Bedroom Sets</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="vinh-drop-down">
+                    <a class="vinh-menu-style" href="/brand">Brands</a>
+                    <div class="vinh-drop-down-content vinh-brand">
+                      <div class="vinh-drop-down-item">
+                        <a href="/brand">Essential Home</a>
+                      </div>
+                      <div class="vinh-drop-down-item">
+                        <a href="/brand">Frato</a>
+                      </div>
+                      <div class="vinh-drop-down-item">
+                        <a href="/brand">Koket</a>
+                      </div>
+                      <div class="vinh-drop-down-item">
+                        <a href="/brand">Erado</a>
+                      </div>
+                      <div class="vinh-drop-down-item">
+                        <a href="/brand">Bentley Home</a>
+                      </div>
+                      <div class="vinh-drop-down-item">
+                        <a href="/brand">Capellini</a>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="vinh-drop-down">
+                    <a class="vinh-menu-style" href="/blog">Blog</a>
+                  </li>
+                  <li class="vinh-drop-down">
+                    <a class="vinh-menu-style" href="/contact-us">Contact us</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="vinh-inner-container">
+                <ul class="vinh-icon-list">
+                  <li id="search-bar" class="collapsed">
+                    <div id="search-box">
+                      <div id="sliding-panel-outer">
+                          <form th:action="@{/search}" method="get">
+                              <div id="sliding-panel-inner">
+                                  <input type="text" id="search-input" th:value="${str}"
+                                         placeholder="Search..." name="str" required/>
+                                  <button type="submit"></button>
+                              </div>
+                          </form>
+                        <!--#sliding-panel-inner-->
+                      </div>
+                      <!--#sliding-panel-outer-->
+
+                      <div class="search-label">
+                        <i id="search-one" class="bi bi-search"></i>
+                      </div>
+                    </div>
+                    <!--#search-box-->
+                  </li>
+                  <!--#searchbar-->
+                  <li>
+                    <a href="/wishlist"><i class="bi bi-heart"></i></a>
+                  </li>
+                    <li class="vinh-cart" style="position: relative;">
+                        <a href="/cart"><i class="bi bi-cart3"></i></a>
+                        <div class="vinh-cart-drop-down">
+                            <p style="float: left">Your shopping cart (</p>
+                            <p th:text="${listCarts.size()}" style="float: left"></p>
+                            <p>&nbspitem)</p>
+                            <div style="margin: 15px 0;">
+                                <div class="vinh-cart-item" th:each="subCart : ${listCarts}">
+                                    <figure class="vinh-promo-pic">
+                                        <img class="vinh-pic"
+                                             th:src="@{${subCart.pathImage}}"/>
+                                    </figure>
+                                    <span th:text="${subCart.name}">Name</span>
+                                    <span th:text="${subCart.quantity} + 'x ' + ${subCart.price}*1 + '.00đ'"></span>
+                                    <i class="bi bi-x-circle"></i>
+                                </div>
+                                <!--                                <div class="vinh-cart-item">-->
+                                <!--                                    <figure class="vinh-promo-pic">-->
+                                <!--                                        <img class="vinh-pic"-->
+                                <!--                                             src="Resources/Img/product-cart-wish-img/rattan-modern-dining-chair-(13).jpg"/>-->
+                                <!--                                    </figure>-->
+                                <!--                                    <span>Frato Rattan Modern Dining Chair</span>-->
+                                <!--                                    <span>1 x $38.00</span>-->
+                                <!--                                    <i class="bi bi-x-circle"></i>-->
+                                <!--                                </div>-->
+                                <div class="subtotal">
+                                    <p>Cart Subtotal:</p>
+                                    <p th:text="${totalPrice}*1 + '.00đ'"></p>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; justify-content: space-between;">
+                                <a class="vinh-button" href="/cart">View Cart</a>
+                                <a class="vinh-button" href="/checkout">Check Out</a>
+                            </div>
+                        </div>
+                    </li>
+                  <li><a href="/login">Log in</a></li>
+                </ul>
+              </div>
+            </div>
+            <div id="myDropdown" class="vinh-sub-menu-dropdown">
+              <ul>
+                <li><a href="/home" style="color:#6CB975 !important">home</a></li>
+                <li><a href="/frato">furniture</a></li>
+                <li><a href="/brand">brand</a></li>
+                <li><a href="/blog">blog</a></li>
+                <li><a href="/contact-us">contact</a></li>
+                <li>
+                  <input class="vinh-sub-menu-search" type="text" placeholder="Search...">
+                  <button class="vinh-search-button" type="submit">Search</button>
+                </li>
+              </ul>
+            </div>
+          </header>
+
+        <!-- Header & Nav end -->
+
+        <!-- Product-single -->
+
+        <section>
+            <div class="hong-container">
+                <div class="row">
+                    <div class="col-6 product-single">
+                        <div class="gallery">
+                            <div class="slide" th:object="${details}">
+                                <img th:src="@{${details.pathImage}}"
+                                    alt="Product gallery" data-izoomify-magnify="2"/>
+<!--                                    data-izoomify-url="@{${details.pathImage}}" />-->
+                            </div>
+                            <div class="slide">
+                                <img th:src="@{${details.pathImage}}"
+                                    alt="Product gallery" data-izoomify-magnify="2"/>
+<!--                                    data-izoomify-url="@{${details.pathImage}}"/>-->
+                            </div>
+                            <div class="slide">
+                                <img th:src="@{${details.pathImage}}"
+                                    alt="Product gallery" data-izoomify-magnify="2"/>
+<!--                                    data-izoomify-url="@{${details.pathImage}}"/>-->
+                            </div>
+                            <div class="slide">
+                                <img th:src="@{${details.pathImage}}"
+                                    alt="Product gallery" data-izoomify-magnify="2"/>
+<!--                                    data-izoomify-url="@{${details.pathImage}}"/>-->
+                            </div>
+                            <div class="slide">
+                                <img th:src="@{${details.pathImage}}"
+                                    alt="Product gallery" data-izoomify-magnify="2"/>
+<!--                                    data-izoomify-url="@{${details.pathImage}}"/>-->
+                            </div>
+                        </div>
+                        <div class="navigation">
+                            <div class="thumbnail">
+                                <img class="thumb"
+                                    th:src="@{${details.pathImage}}"
+                                    onclick="currentSlide(1)" alt="Product gallery">
+                            </div>
+                            <div class="thumbnail">
+                                <img class="thumb"
+                                    th:src="@{${details.pathImage}}"
+                                    onclick="currentSlide(2)" alt="Product gallery">
+                            </div>
+                            <div class="thumbnail">
+                                <img class="thumb"
+                                    th:src="@{${details.pathImage}}"
+                                    onclick="currentSlide(3)" alt="Product gallery">
+                            </div>
+                            <div class="thumbnail">
+                                <img class="thumb"
+                                    th:src="@{${details.pathImage}}"
+                                    onclick="currentSlide(4)" alt="Product gallery">
+                            </div>
+                            <div class="thumbnail">
+                                <img class="thumb"
+                                    th:src="@{${details.pathImage}}"
+                                    onclick="currentSlide(5)" alt="Product gallery">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 summary">
+                        <h1 class="title" th:text="${details.name}">Frato Metal Classic Out Door Dining Chair</h1>
+                        <span class="product-code">DFPC: DIN-OD-0019</span>
+                        <p class="price">
+                            <span class="amount"><span class="currency" th:text="${details.price}*1">$</span>83.00</span>
+                        </p>
+                        <div style="display: block !important;" class="product-rating">
+                            <span class="chosen"><i class="fas fa-star"></i></span>
+                            <span class="chosen"><i class="fas fa-star"></i></span>
+                            <span class="chosen"><i class="fas fa-star"></i></span>
+                            <span><i class="fas fa-star"></i></span>
+                            <span><i class="fas fa-star"></i></span>
+                            <span class="product-single-reviews">
+                                &nbsp;( <span class="review-counter" th:text="${dem}">2</span> customers reviewed)
+                            </span>
+                        </div>
+                        <div class="stock-info-bar">
+                            <div class="stock-counter">
+                                <small class="stock-warning" th:text="'Only ' + ${product.quantity} + ' left in stock'">Only -7 left in stock </small>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="stock-bar">
+                                <div class="stock-percentage"></div>
+                            </div>
+                        </div>
+                        <div class="short-desc" th:text="${details.descriptions}">
+                            <p>Classic stable chair is extremely suitable for not only your out door dining but also for
+                                garden relaxing. Metal and solid chairs decorate your table as a well-fitted set to
+                                serve
+                                BBQ or brunch with breezes. It's a perfect choice for the combination of sophisticated
+                                classical style and modern living.</p>
+                        </div>
+                        <p class="stock" th:text="${cart} + ' in cart'">2 in Cart</p>
+                        <form class="cart" action="#" method="post">
+                            <div class="quantity">
+                                <div class="quantity-wrap">
+                                    <span class="minus btn"> - </span>
+                                    <input type="number" id="hong-quantity" step="1" min="1" name="quantity" value="1">
+                                    <span class="add btn"> + </span>
+                                </div>
+                            </div>
+                            <a href="/cart" class="add-to-cart-button btn" th:id="addToCartBtn">
+                                <i class="fa fa-shopping-cart"></i> Add To Cart
+                            </a>
+                            <input th:id="valueId" th:type="hidden" th:value="${product.id}">
+                        </form>
+
+                        <!-- Add to wishlist -->
+
+                        <div class="add-to-wishlist">
+                            <a href="/wishlist" class="wish-list-link add-to-wish-list-button" th:id="addToWishBtn">
+                                <i class="far fa-heart"></i> Add to Wishlist
+                            </a>
+                            <input th:id="valueId2" th:type="hidden" th:value="${product.id}">
+                        </div>
+                        <div class="product-meta">
+                            <span class="category">Categories:
+                                <a href="/frato" rel="tag">Chair</a>,
+                                <a href="/frato" rel="tag">Dining Chair</a>
+                            </span>
+                        </div>
+                        <h6>Secured by:</h6>
+                        <img class="secured" alt="secured" src="../Resources/Img/product-detail-img/trust-icons.png">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product-description -->
+
+        <section>
+            <div class="hong-container product-description">
+                <div class="row description-wrapper">
+                    <div class="col-3 tab sidebar">
+                        <div class="tab-link btn" onclick="openTab(event, 'description')">Description
+                            <i class="fas fa-angle-right"></i>
+                        </div>
+                        <div class="tab-link btn" onclick="openTab(event, 'reviews')">Reviews
+                            (<span class="review-counter" th:text="${dem}">1</span>)
+                            <i class="fas fa-angle-right"></i>
+                        </div>
+                        <a class="download-description-button btn" target="_blank"
+                            download="Frato-Metal-Classic-Out-Door-Dining-Chair.docx"
+                            href="https://www.mediafire.com/file/qp0tieuthnmrdir/Frato-Metal-Classic-Out-Door-Dining-Chair.docx/file">
+                            Download description</a>
+                        <div class="discount-side-banner">
+                            <figure class="vinh-promo-pic">
+                                <img class="vinh-pic"
+                                    src="../Resources/Img/product-detail-img/summer-discount.jpg">
+                            </figure>
+                        </div>
+                        <div class="discount-side-banner">
+                            <figure class="vinh-promo-pic">
+                                <img class="vinh-pic" src="../Resources/Img/product-detail-img/cat-02.jpg">
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="col-9 content">
+                        <div class="tab-content active" id="description">
+                            <h4>Description</h4>
+                            <p>Stretch slipcovers are the perfect way to renew, restyle and refresh your furniture. On
+                                and off
+                                in a flash. 5 minute instant makeover. More economical than reupholstering. Quick room
+                                transformation. Stretch to fit product. Fits most larger sized recliners up to 97"
+                                circumference
+                                (around back of recliner). Seat width of 50" + 26.8" (left to right) with a seat depth
+                                of
+                                26.8" (front to
+                                back). One pocket on left side. Right side has opening to accommodate handle. 4 pieces.
+                                1) right
+                                arm cover. 2) left arm cover. 3) back cover. 4) foot rest cover.</p>
+                            <p>Safeguard your furniture from spills, stains, wear and tear with these form fit
+                                slipcovers. These
+                                knitted jacquard stretch slipcovers can give your dining place a fresh new look while
+                                extending
+                                the lifetime of your furniture. They're a must-have for homes with children or pets. And
+                                since
+                                their machine washable, strapless, and slip-resistant, they basically define the term
+                                easy-to-care-for.</p>
+                            <p>Features:
+                                Shields and protects furniture from everyday mishaps, including spills, stains, dirt,
+                                grime,
+                                wear, and tear;
+                                Stain resistant and machine washable for your convenience;
+                                Strapless and elasticized on the bottom so that it stays in place without shifting or
+                                moving;
+                                Super soft and lightweight jacquard stretch material.
+                                Product Details: One Piece, Elastic Edges, Machine washable.</p>
+                            <div class="row desc-img big">
+                                <img th:src="@{${details.pathImage}}"
+                                    alt="Product description">
+                            </div>
+                            <div class="row desc-img small">
+                                <div class="col-4">
+                                    <img th:src="@{${details.pathImage}}"
+                                        alt="Product description">
+                                </div>
+                                <div class="col-4">
+                                    <img th:src="@{${details.pathImage}}"
+                                        alt="Product description">
+                                </div>
+                                <div class="col-4">
+                                    <img th:src="@{${details.pathImage}}"
+                                        alt="Product description">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="reviews" style="display: none" >
+                            <div class="col-12 review-show" th:object="${details}">
+                                <h2 th:text="*{name}">Reviews for "Frato Metal Classic Out Door Dining Chair"</h2>
+                                <div class="col-12 review-card" th:each="ls : ${listreview}">
+                                    <div class="row profile" >
+                                        <h6 class="review-name" th:text="${ls.getUserName()}">Anonyme Forver </h6> -
+<!--                                        <span class="review-date">September 19, 2019</span>-->
+                                        <div style="display: block !important;" class="product-rating">
+                                            <span class="chosen"><i class="fas fa-star"></i></span>
+                                            <span class="chosen"><i class="fas fa-star"></i></span>
+                                            <span class="chosen"><i class="fas fa-star"></i></span>
+                                            <span><i class="fas fa-star"></i></span>
+                                            <span><i class="fas fa-star"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="row review-text">
+                                        <p th:text="${ls.getDescriptions()}">It is very convenient and styled to use this chair in my garden. Very compact
+                                            also!.</p>
+                                    </div>
+                                    <div class="row review-img">
+                                        <img src="../Resources/Img/product-detail-img/sofa6.jpg"
+                                            alt="Product review">
+                                        <img src="../Resources/Img/product-detail-img/sofa7.jpg"
+                                            alt="Product review">
+                                        <img src="../Resources/Img/product-detail-img/sofaround.jpg"
+                                            alt="Product review">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="no-review" style="display: none">
+                                <h2>Reviews</h2>
+                                <p>There are no reviews yet.</p>
+                            </div>
+                            <div class="review-wrapper">
+                                <div id="comment-respond">
+                                    <span id="reply-title"> Add your review</span>
+                                    <form th:action="@{/reviews/add_review}" th:object="${review}" method="post" id="comment-form" class="comment-form" novalidate="">
+                                        <p id="email-notes">
+                                            <span> Your email address will not be published. Required fields are marked
+                                            </span><span class="required">*</span>
+                                        </p>
+                                        <p id="rating-title">
+                                            <span> Your rating </span><span class="required">*</span>
+                                        </p>
+                                        <div class="rating">
+                                            <label>
+                                                <input type="radio" name="stars" value="1" />
+                                                <span class="icon"><i class="fas fa-star"></i></span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="stars" value="2" />
+                                                <span class="icon"><i class="fas fa-star"></i></span>
+                                                <span class="icon"><i class="fas fa-star"></i></span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="stars" value="3" />
+                                                <span class="icon"><i class="fas fa-star"></i></span>
+                                                <span class="icon"><i class="fas fa-star"></i></span>
+                                                <span class="icon"><i class="fas fa-star"></i></span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="stars" value="4" />
+                                                <span class="icon"><i class="fas fa-star"></i></span>
+                                                <span class="icon"><i class="fas fa-star"></i></span>
+                                                <span class="icon"><i class="fas fa-star"></i></span>
+                                                <span class="icon"><i class="fas fa-star"></i></span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="stars" value="5" />
+                                                <span class="icon"><i class="fas fa-star"></i></span>
+                                                <span class="icon"><i class="fas fa-star"></i></span>
+                                                <span class="icon"><i class="fas fa-star"></i></span>
+                                                <span class="icon"><i class="fas fa-star"></i></span>
+                                                <span class="icon"><i class="fas fa-star"></i></span>
+                                            </label>
+                                        </div>
+                                        <div class="col-12 comment">
+                                            <label>Your review&nbsp;<span class="required">*</span></label><br>
+                                            <textarea th:field="*{descriptions}" class="col-12" id="hong-comment"
+                                                      name="comment" cols="45" rows="4" required=""></textarea>
+                                            <input type="hidden" th:field="*{userId}"/>
+                                            <input type="hidden" th:field="*{productId}"/>
+                                        </div>
+<!--
+                                        <div class="row">
+                                            <div class="col-6 author">-->
+<!--                                                <label>Name&nbsp;<span class="required">*</span></label><br>-->
+<!--                                                <input class="col-12" id="hong-author" name="author" type="text"-->
+<!--                                                    value="" size="30" required="">-->
+<!--                                            </div>-->
+<!--                                            <div class="col-6 email">-->
+<!--                                                <label>Email&nbsp;<span class="required">*</span></label><br>-->
+<!--                                                <input class="col-12" id="hong-email" name="email" type="email" value=""-->
+<!--                                                    size="30" required="">-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+                                        <div class="col-12 form-submit">
+                                            <input class="col-12 btn" name="submit" type="submit" id="hong-submit"
+                                                 value="Submit">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product-related -->
+
+        <section>
+            <div class="hong-container product-related">
+                <div class="row">
+                    <div class="related-title">
+                        <h3>Related Products</h3>
+                    </div>
+                    <div class="row products">
+                        <div class="product">
+                            <figure>
+                                <div class="icons">
+                                    <a href="/cart" class="btn add-to-cart-button">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </a>
+                                    <a href="#" style="display:none; transform: rotate(90deg)" class="btn option">
+                                        <i class="fas fa-sliders-h"></i>
+                                    </a>
+                                    <a href="/wishlist" class="btn add-to-wish-list-button">
+                                        <i class="far fa-heart"></i>
+                                    </a>
+                                    <a href="/product_comparison" class="btn compare-product">
+                                        <i class="fas fa-random"></i>
+                                    </a>
+                                    <a href="#" style="display:none" class="btn affiliate-product">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" class="btn view-product">
+                                        <i class="far fa-eye"></i>
+                                    </a>
+                                </div>
+                                <div class="product-wrapper">
+                                    <a href="/chair">
+                                        <span style="display: block" class="onsale">Sale!</span>
+                                        <div class="thumb-wrap">
+                                            <div class="product-img">
+                                                <img alt="Product related"
+                                                    src="../Resources/Img/product-detail-img/sofa-300x300.jpg">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </figure>
+                            <div class="caption">
+                                <h6 class="loop-product-title">
+                                    <a href="/chair">Frato Rattan Modern Dining
+                                        Chair</a>
+                                </h6>
+                                <div class="price-box">
+                                    <span class="price">
+                                        <del style="display: inline">
+                                            <span class="Price-amount amount active">
+                                                <span class="Price-currencySymbol">$</span>95.00
+                                            </span>
+                                        </del>
+                                        <ins><span class="Price-amount amount">
+                                                <span class="Price-currencySymbol">&nbsp;$</span>75.00
+                                            </span></ins>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="product-rating">
+                                <span class="chosen"><i class="fas fa-star"></i></span>
+                                <span class="chosen"><i class="fas fa-star"></i></span>
+                                <span class="chosen"><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <figure>
+                                <div class="icons">
+                                    <a href="/cart" class="btn add-to-cart-button">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </a>
+                                    <a href="#" style="display:none" class="btn affiliate-product">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" style="display:none; transform: rotate(90deg)" class="btn option">
+                                        <i class="fas fa-sliders-h"></i>
+                                    </a>
+                                    <a href="/wishlist" class="btn add-to-wish-list-button">
+                                        <i class="far fa-heart"></i>
+                                    </a>
+                                    <a href="/product_comparison" class="btn compare-product">
+                                        <i class="fas fa-random"></i>
+                                    </a>
+                                    <a href="#" class="btn view-product">
+                                        <i class="far fa-eye"></i>
+                                    </a>
+                                </div>
+                                <div class="product-wrapper">
+                                    <a href="/chair">
+                                        <span class="onsale">Sale!</span>
+                                        <div class="thumb-wrap">
+                                            <div class="product-img">
+                                                <img alt="Product related"
+                                                    src="../Resources/Img/product-detail-img/sofa-3-300x300.jpg">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </figure>
+                            <div class="caption">
+                                <h6 class="loop-product-title">
+                                    <a href="/chair">Frato Plastic Classic
+                                        Dining
+                                        Chair</a>
+                                </h6>
+                                <div class="price-box">
+                                    <span class="price">
+                                        <del>
+                                            <span class="Price-amount amount">
+                                                <span class="Price-currencySymbol">$</span>100.00
+                                            </span>
+                                        </del>
+                                        <ins><span class="Price-amount amount">
+                                                <span class="Price-currencySymbol">&nbsp;$</span>59.00
+                                            </span></ins>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="product-rating">
+                                <span class="chosen"><i class="fas fa-star"></i></span>
+                                <span class="chosen"><i class="fas fa-star"></i></span>
+                                <span class="chosen"><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <figure>
+                                <div class="icons">
+                                    <a href="/cart" class="btn add-to-cart-button">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </a>
+                                    <a href="#" style="display:none" class="btn affiliate-product">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" style="display:none; transform: rotate(90deg)" class="btn option">
+                                        <i class="fas fa-sliders-h"></i>
+                                    </a>
+                                    <a href="/wishlist" class="btn add-to-wish-list-button">
+                                        <i class="far fa-heart"></i>
+                                    </a>
+                                    <a href="/product_comparison" class="btn compare-product">
+                                        <i class="fas fa-random"></i>
+                                    </a>
+                                    <a href="#" class="btn view-product">
+                                        <i class="far fa-eye"></i>
+                                    </a>
+                                </div>
+                                <div class="product-wrapper">
+                                    <a href="/chair">
+                                        <span class="onsale">Sale!</span>
+                                        <div class="thumb-wrap">
+                                            <div class="product-img">
+                                                <img alt="Product related"
+                                                    src="../Resources/Img/product-detail-img/sofa-2-300x300.jpg">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </figure>
+                            <div class="caption">
+                                <h6 class="loop-product-title">
+                                    <a href="/chair">Frato Wooden Balcony Dining
+                                        Chair</a>
+                                </h6>
+                                <div class="price-box">
+                                    <span class="price">
+                                        <del>
+                                            <span class="Price-amount amount">
+                                                <span class="Price-currencySymbol">$</span>100.00
+                                            </span>
+                                        </del>
+                                        <ins><span class="Price-amount amount">
+                                                <span class="Price-currencySymbol">&nbsp;$</span>38.00
+                                            </span></ins>
+                                    </span>
+                                </div>
+                            </div>
+                            <div style="display: block !important;" class="product-rating">
+                                <span class="chosen"><i class="fas fa-star"></i></span>
+                                <span class="chosen"><i class="fas fa-star"></i></span>
+                                <span class="chosen"><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <figure>
+                                <div class="icons">
+                                    <a href="/cart" class="btn add-to-cart-button">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </a>
+                                    <a href="#" style="display:none" class="btn affiliate-product">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" style="display:none; transform: rotate(90deg)" class="btn option">
+                                        <i class="fas fa-sliders-h"></i>
+                                    </a>
+                                    <a href="/wishlist" class="btn add-to-wish-list-button">
+                                        <i class="far fa-heart"></i>
+                                    </a>
+                                    <a href="/product_comparison" class="btn compare-product">
+                                        <i class="fas fa-random"></i>
+                                    </a>
+                                    <a href="#" class="btn view-product">
+                                        <i class="far fa-eye"></i>
+                                    </a>
+                                </div>
+                                <div class="product-wrapper">
+                                    <a href="/chair">
+                                        <span class="onsale">Sale!</span>
+                                        <div class="thumb-wrap">
+                                            <div class="product-img">
+                                                <img alt="Product related"
+                                                    src="../Resources/Img/product-detail-img/sofa-1-300x300.jpg">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </figure>
+                            <div class="caption">
+                                <h6 class="loop-product-title">
+                                    <a href="/chair">Frato Bamboo Kid Dining
+                                        Chair</a>
+                                </h6>
+                                <div class="price-box">
+                                    <span class="price">
+                                        <del>
+                                            <span class="Price-amount amount">
+                                                <span class="Price-currencySymbol">$</span>100.00
+                                            </span>
+                                        </del>
+                                        <ins><span class="Price-amount amount">
+                                                <span class="Price-currencySymbol">&nbsp;$</span>25.00
+                                            </span></ins>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="product-rating">
+                                <span class="chosen"><i class="fas fa-star"></i></span>
+                                <span class="chosen"><i class="fas fa-star"></i></span>
+                                <span class="chosen"><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Request -->
+
+        <div class="hong-request-call hong-screen-fixed-btn">
+            <a href="/contact-us">Request a Callback?</a>
+        </div>
+
+        <!-- Footer -->
+        <div class="vinh-container">
+            <div id="hong-scroll-top-btn" onclick="hongScrollTop()">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+
+            <div class="vinh-container-footer"></div>
+            <footer>
+                <div class="ft-social vinh-info">
+                    <div class="ft-main-item">
+                        <h3 class="ft-title">About the company</h3>
+                        <ul>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Affiliates</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Investor Ralations</a></li>
+                        </ul>
+                    </div>
+                    <div class="ft-main-item">
+                        <h3 class="ft-title">Customer Service</h3>
+                        <ul>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="http://127.0.0.1:5501/faq.html">Help Center</a></li>
+                            <li><a href="#">Shopping Guide</a></li>
+                            <li><a href="#">Shipping</a></li>
+                            <li><a href="mailto:vinhtb.jp@gmail.com">Email us</a></li>
+                        </ul>
+                    </div>
+                    <div class="ft-main-item">
+                        <h3 class="ft-title">Site Terms</h3>
+                        <ul>
+                            <li><a href="#">Sitemap</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">Terms of Sale</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Shop Glossary</a></li>
+                        </ul>
+                    </div>
+                    <div class="ft-main-item">
+                        <h3 class="ft-title">Newsletter Subcribe</h3>
+                        <p style="margin-top: 10px;">Get 5% OFF when you signup for<br>our email newsletter!</p>
+                        <div class="vinh-newsletter">
+                            <form>
+                                <input class="vinh-newsletter-input" type="email" name="email">
+                            </form>
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="ft-social-container">
+                    <div class="ft-social vinh-sns">
+                        <span>&copy; 2021 Durable Furniture. All rights reserved</span>
+                        <div class="vinh-sns-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-tumblr"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Vinh scripts -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.3.2.min.js"
+        integrity="sha256-Ap4KLoCf1rXb52q+i3p0k2vjBsmownyBTE1EqlRiMwA=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/957c836d53.js" crossorigin="anonymous"></script>
+
+    <script>
+        $('#search-bar .search-label').on('click', function (e) {
+            e.preventDefault();
+            $('#search-bar').toggleClass('collapsed');
+        });
+
+        function subMenuFunction() {
+            document.getElementById('myDropdown').classList.add('vinh-show')
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.bi-list')) {
+                var dropdowns = document.getElementsByClassName('vinh-sub-menu-dropdown');
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('vinh-show')) {
+                        openDropdown.classList.remove('vinh-show');
+                    }
+                }
+            }
+        }
+
+        document.getElementById("myIcon").onclick = function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        };
+
+        window.onscroll = function () { myFunction() };
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        hScrollTopBtn = document.getElementById("hong-scroll-top-btn");
+
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("vinh-sticky")
+            } else {
+                navbar.classList.remove("vinh-sticky");
+            }
+
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                hScrollTopBtn.style.display = "block";
+            } else {
+                hScrollTopBtn.style.display = "none";
+            }
+        }
+
+        function hongScrollTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        };
+    </script>
+
+    <!-- Page scripts -->
+
+    <script src="../Resources/Plug-in/jquery3.5.1/jquery-3.5.1.js"></script>
+    <script src="../Resources/Plug-in/jqueryscript/jquery.izoomify.js"></script>
+    <script>
+        // Gallery slider
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Auto circulate
+
+        setInterval(function () {
+            showSlides(slideIndex += 1);
+        }, 2000);
+
+        // Thumbnail image controls
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("slide");
+            var thumbs = document.getElementsByClassName("thumb");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < thumbs.length; i++) {
+                thumbs[i].className = thumbs[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            thumbs[slideIndex - 1].className += " active";
+        }
+
+        // Product-description Tabs
+
+        function openTab(evt, tabName) {
+            var i, tabContent, tabLink;
+
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+
+            tabLink = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tabLink.length; i++) {
+                tabLink[i].className = tabLink[i].className.replace(" active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Izoomify
+
+        $(function () {
+            $('.slide').izoomify();
+        });
+
+        // Change Quantity
+
+        $('.minus').on('click', function (e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $input = $this.closest('div').find('input');
+            var value = parseInt($input.val());
+
+            if (value > 1) {
+                value = value - 1;
+            } else {
+                value = 1;
+            }
+
+            $input.val(value);
+        });
+
+        $('.add').on('click', function (e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $input = $this.closest('div').find('input');
+            var value = parseInt($input.val());
+
+            if (value < 98) {
+                value = value + 1;
+            } else {
+                value = 99;
+            }
+
+            $input.val(value);
+        });
+
+        // add cart
+        $('#addToCartBtn').on('click', function (e) {
+            e.preventDefault();
+            var value = $(document).find('#valueId').val();
+            var valQuan = $(document).find('#hong-quantity').val();
+
+            console.log(value);
+            console.log(valQuan);
+            $.ajax({
+                type: 'POST',
+                url: '/addToCart3',
+                data: {'pid': value, 'quan':valQuan},
+                success: function (data){
+                    console.log(data);
+                    var result = $.trim(data);
+                    if(result==="ok"){
+                        alert("Thêm vào giỏ hàng thành công!");
+                    }else if(result==="login"){
+                        alert("Vui lòng đăng nhập!");
+                    }else{
+                        alert("Số lượng không hợp lệ!");
+                    }
+                }
+            });
+        });
+
+        // add wish
+        $('#addToWishBtn').on('click', function (e) {
+            e.preventDefault();
+            var value = $(document).find('#valueId').val();
+
+            console.log(value);
+            $.ajax({
+                type: 'POST',
+                url: '/addWish',
+                data: {'pid': value},
+                success: function (data){
+                    if(data === 'ok'){
+                        alert("Thêm yêu thích thành công!");
+                    }else{
+                        alert("Vui lòng đăng nhập");
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
