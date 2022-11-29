@@ -3,6 +3,7 @@ package controller
 import (
 	"DATN/service"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 type HomeController struct {
@@ -22,9 +23,8 @@ func (h HomeController) SetRouterHomeController(router *gin.Engine) *gin.Engine 
 func (h HomeController) Home(c *gin.Context) {
 	listPro, err := h.hController.Home()
 	if err != nil {
-
 	} else {
-		c.HTML(200, "index.html", gin.H{
+		c.HTML(http.StatusOK, "index.html", gin.H{
 			"listProduct": listPro,
 		})
 	}

@@ -2,6 +2,7 @@ package service
 
 import (
 	"DATN/configs"
+	"DATN/model"
 	"DATN/repository"
 	"DATN/token"
 	"fmt"
@@ -36,22 +37,21 @@ func (c UserService) Register(ten, taiKhoan, matKhau, sdt, email, diaChi string,
 	return nil
 }
 
-func (c UserService) Login(taiKhoan, matKhau string) error {
+func (c UserService) Login(taiKhoan, matKhau string) (string, error) {
 	passHash, err := c.UserRepo.Login(taiKhoan)
 	if err != nil {
-		return err
+		return model.EmptyString, err
 	}
 	result := checkPassword(matKhau, passHash)
 	createToken, _, err := c.token.CreateToken(taiKhoan, c.cfg.AccessTokenDuration)
-	fmt.Println(createToken)
 	if err != nil {
-		return err
+		return model.EmptyString, err
 	}
 	if result {
 		fmt.Println("true")
 	}
 
-	return nil
+	return createToken, nil
 }
 
 func hashPassword(matKhau string) (string, error) {

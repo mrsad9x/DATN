@@ -484,18 +484,18 @@ a {
     font-size: 150%;
 }
 
-.vinh-brand .vinh-drop-down-item:nth-child(1) {background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/Resources/Img/header-footer-img/regan-sofa.jpg);}
-.vinh-brand .vinh-drop-down-item:nth-child(2) {background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/Resources/Img/header-footer-img/Cepella.jpg);}
-.vinh-brand .vinh-drop-down-item:nth-child(3) {background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/Resources/Img/header-footer-img/bedroom.jpg);}
-.vinh-brand .vinh-drop-down-item:nth-child(4) {background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/Resources/Img/header-footer-img/livingroom2.jpg);}
-.vinh-brand .vinh-drop-down-item:nth-child(5) {background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/Resources/Img/header-footer-img/bedroom2.jpg);}
-.vinh-brand .vinh-drop-down-item:nth-child(6) {background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/Resources/Img/header-footer-img/juneau_bed_v2_600x.jpg);}
-.vinh-brand .vinh-drop-down-item:nth-child(1):hover {background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/Resources/Img/header-footer-img/regan-sofa.jpg);}
-.vinh-brand .vinh-drop-down-item:nth-child(2):hover {background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/Resources/Img/header-footer-img/Cepella.jpg);}
-.vinh-brand .vinh-drop-down-item:nth-child(3):hover {background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/Resources/Img/header-footer-img/bedroom.jpg);}
-.vinh-brand .vinh-drop-down-item:nth-child(4):hover {background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/Resources/Img/header-footer-img/livingroom2.jpg);}
-.vinh-brand .vinh-drop-down-item:nth-child(5):hover {background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/Resources/Img/header-footer-img/bedroom2.jpg);}
-.vinh-brand .vinh-drop-down-item:nth-child(6):hover {background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/Resources/Img/header-footer-img/juneau_bed_v2_600x.jpg);}
+.vinh-brand .vinh-drop-down-item:nth-child(1) {background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/static/Resources/Img/header-footer-img/regan-sofa.jpg);}
+.vinh-brand .vinh-drop-down-item:nth-child(2) {background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/static/Resources/Img/header-footer-img/Cepella.jpg);}
+.vinh-brand .vinh-drop-down-item:nth-child(3) {background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/static/Resources/Img/header-footer-img/bedroom.jpg);}
+.vinh-brand .vinh-drop-down-item:nth-child(4) {background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/static/Resources/Img/header-footer-img/livingroom2.jpg);}
+.vinh-brand .vinh-drop-down-item:nth-child(5) {background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/static/Resources/Img/header-footer-img/bedroom2.jpg);}
+.vinh-brand .vinh-drop-down-item:nth-child(6) {background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/static/Resources/Img/header-footer-img/juneau_bed_v2_600x.jpg);}
+.vinh-brand .vinh-drop-down-item:nth-child(1):hover {background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/static/Resources/Img/header-footer-img/regan-sofa.jpg);}
+.vinh-brand .vinh-drop-down-item:nth-child(2):hover {background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/static/Resources/Img/header-footer-img/Cepella.jpg);}
+.vinh-brand .vinh-drop-down-item:nth-child(3):hover {background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/static/Resources/Img/header-footer-img/bedroom.jpg);}
+.vinh-brand .vinh-drop-down-item:nth-child(4):hover {background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/static/Resources/Img/header-footer-img/livingroom2.jpg);}
+.vinh-brand .vinh-drop-down-item:nth-child(5):hover {background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/static/Resources/Img/header-footer-img/bedroom2.jpg);}
+.vinh-brand .vinh-drop-down-item:nth-child(6):hover {background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/static/Resources/Img/header-footer-img/juneau_bed_v2_600x.jpg);}
 
 /* ------------------------------------------------------ */
 /* FOOTER */

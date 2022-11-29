@@ -5,32 +5,31 @@ import (
 	"fmt"
 )
 
-type dbNguoiDung struct {
+type dbUser struct {
 	client IDatabase
 }
 
-func NewSQLNguoiDung(db IDatabase) IUserDB {
-	return &dbNguoiDung{client: db}
+func NewSQLUser(db IDatabase) IUserDB {
+	return &dbUser{client: db}
 }
 
-func (d dbNguoiDung) Login(taiKhoan string) (string, error) {
+func (d dbUser) Login(taiKhoan string) (string, error) {
 	queryCommand := fmt.Sprintf("Select * from nguoi_dung where tai_khoan = '%s'", taiKhoan)
 	data, err := d.client.QueryOneRow(queryCommand)
 	if err != nil {
 		return "", err
 	}
-	var user model.NguoiDung
+	var user model.User
 	for data.Next() {
 		err = data.StructScan(&user)
 		if err != nil {
 			return "", err
 		}
 	}
-	fmt.Println(user.TaiKhoan)
-	return user.MatKhau, nil
+	return user.Password, nil
 }
 
-func (d dbNguoiDung) Register(ten, taiKhoan, matKhau, sdt, email, diaChi string, status, role, chiSoTN int) error {
+func (d dbUser) Register(ten, taiKhoan, matKhau, sdt, email, diaChi string, status, role, chiSoTN int) error {
 	queryCommand := fmt.Sprintf("Insert into nguoi_dung value('0','%s','%s','%s','%s','%s','%s','%d','%d','%d')", ten, taiKhoan, matKhau, sdt, email, diaChi, status, role, chiSoTN)
 	err := d.client.Exec(queryCommand)
 	if err != nil {
@@ -58,8 +57,8 @@ func (d dbNguoiDung) Register(ten, taiKhoan, matKhau, sdt, email, diaChi string,
 	return nil
 }
 
-func (d dbNguoiDung) CheckExist(taiKhoan, email string) (bool, int) {
-	var nd model.NguoiDung
+func (d dbUser) CheckExist(taiKhoan, email string) (bool, int) {
+	var nd model.User
 	queryCommand := fmt.Sprintf("Select * from nguoi_dung where tai_khoan = '%s' or email = '%s'", taiKhoan, email)
 	data, err := d.client.QueryOneRow(queryCommand)
 	if err != nil {
@@ -69,7 +68,7 @@ func (d dbNguoiDung) CheckExist(taiKhoan, email string) (bool, int) {
 	data.Next()
 	{
 		err = data.StructScan(&nd)
-		if nd.TaiKhoan == taiKhoan {
+		if nd.UserName == taiKhoan {
 			return true, 1
 		}
 		if nd.Email == email {

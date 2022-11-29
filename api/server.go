@@ -19,7 +19,7 @@ type Server struct {
 }
 
 func New(cfg *configs.Server) (*Server, error) {
-	tokenMaker, err := token.NewPasetoMaker(cfg.TokenSymmetricKey)
+	tokenMaker, err := token.NewJWTMaker(cfg.TokenSymmetricKey)
 	if err != nil {
 		return nil, fmt.Errorf("can not create token maker: %w", err)
 	}
@@ -40,7 +40,7 @@ func (s *Server) Start() error {
 
 	err = s.route.SetTrustedProxies(nil)
 
-	userRepo := repository.NewSQLNguoiDung(db)
+	userRepo := repository.NewSQLUser(db)
 	userService := service.NewUserService(userRepo, s.tokenMaker, s.cfg)
 	userController := controller.NewUserController(userService)
 	userController.SetRouterUserController(s.route)
@@ -55,18 +55,14 @@ func (s *Server) Start() error {
 	homeController := controller.NewHomeController(homeService)
 	homeController.SetRouterHomeController(s.route)
 
-	s.route.LoadHTMLGlob("templates/*.html")
+	s.route.Static("/static", "./templates/static")
+	s.route.LoadHTMLGlob("templates/*.*")
+
 	s.route.Use(cors.Default())
 	err = s.route.Run(fmt.Sprintf(":%s", port))
 	if err != nil {
 		return err
 	}
-
-	//err = userService.Register("Duc Xuan", "mrsad9x", "123456", "0375686987", "mr.sad.9x@gmail.com", "", 1, 1, 1)
-	//if err != nil {
-	//	fmt.Println(err.Error())
-	//	return err
-	//}
 
 	return nil
 }

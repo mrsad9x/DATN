@@ -20,11 +20,11 @@
 }
 
 .vinh-first-slide {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url(/Resources/Img/home-page-img/slider-2.jpg);  
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url(/static/Resources/Img/home-page-img/slider-2.jpg);
 }
 
 .vinh-second-slide {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(/Resources/Img/home-page-img/slider-1.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(/static/Resources/Img/home-page-img/slider-1.jpg);
 }
 
 .vinh-banner {
@@ -313,11 +313,11 @@
 }
 
 .vinh-outer-wrap .vinh-first-slide {
-    background-image: url(/Resources/Img/home-page-img/product-slider.jpg) !important;
+    background-image: url(static/Resources/Img/home-page-img/product-slider.jpg) !important;
 }
 
 .vinh-outer-wrap .vinh-second-slide {
-    background-image: url(/Resources/Img/home-page-img/product-slider1.jpg) !important;
+    background-image: url(static/Resources/Img/home-page-img/product-slider1.jpg) !important;
 }
 
 .vinh-ad-section {

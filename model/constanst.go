@@ -10,3 +10,7 @@ const (
 	ANDFORM    = "And"
 	ORFORM     = "Or"
 )
+
+const (
+	EmptyString = ""
+)

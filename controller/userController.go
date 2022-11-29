@@ -20,32 +20,35 @@ func NewUserController(userControl service.IUserService) IUserController {
 }
 
 func (u UserController) SetRouterUserController(router *gin.Engine) *gin.Engine {
-	router.POST("/login", u.DangNhap)
-	router.POST("/register", u.DangKy)
+	router.POST("/login", u.Login)
+	router.POST("/register", u.Register)
 	r := router.Group("/admin")
 	{
-		r.POST("/createuser", u.TaoNguoiDung)
+		r.POST("/createuser", u.CreateUser)
 	}
 	return router
 }
 
-func (u UserController) DangNhap(c *gin.Context) {
+func (u UserController) Login(c *gin.Context) {
 	username := c.PostForm("user")
 	pass := c.PostForm("pass")
-	err := u.UController.Login(username, pass)
+	token, err := u.UController.Login(username, pass)
+
 	if err != nil {
 		fmt.Println(err)
 		c.JSONP(400, gin.H{
 			"messeage": "login fail",
 		})
 	} else {
-		c.JSONP(200, gin.H{
+		c.JSONP(http.StatusOK, gin.H{
+			"token":   token,
 			"message": "login success!",
 		})
+
 	}
 }
 
-func (u UserController) DangKy(c *gin.Context) {
+func (u UserController) Register(c *gin.Context) {
 	ten := c.PostForm("name")
 	taiKhoan := c.PostForm("username")
 	matKhau := c.PostForm("password")
@@ -62,13 +65,13 @@ func (u UserController) DangKy(c *gin.Context) {
 			"message": "register fail!",
 		})
 	} else {
-		c.JSONP(200, gin.H{
+		c.JSONP(http.StatusOK, gin.H{
 			"message": "register success!",
 		})
 	}
 }
 
-func (u UserController) TaoNguoiDung(c *gin.Context) {
+func (u UserController) CreateUser(c *gin.Context) {
 	ten := c.PostForm("name")
 	taiKhoan := c.PostForm("username")
 	matKhau := c.PostForm("password")

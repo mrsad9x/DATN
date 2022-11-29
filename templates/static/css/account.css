@@ -1,5 +1,5 @@
 .vinh-outer-wrap {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(/Resources/Img/header-footer-img/livingroom2.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(/templates/static/Resources/Img/header-footer-img/livingroom2.jpg);
     background-size: cover;
     background-position: center;
     margin: 0 !important;

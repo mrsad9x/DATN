@@ -1,5 +1,5 @@
 .account-banner {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(/Resources/Img/home-page-img/product-slider.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(static/Resources/Img/home-page-img/product-slider.jpg);
   background-size: cover;
   background-position: center;
   width: 100vw;

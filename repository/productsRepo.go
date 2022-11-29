@@ -108,7 +108,7 @@ func ParseDataProduct(data *sql.Rows) ([]model.SanPham, error) {
 		product.SoLuong = soLuong
 		product.MoTaSP = mota
 		product.Status = status
-		product.PathImg = pathImg
+		product.PathImg = "static/image/" + pathImg
 
 		products = append(products, product)
 	}
