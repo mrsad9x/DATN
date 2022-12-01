@@ -13,20 +13,20 @@ func NewSQLUser(db IDatabase) IUserDB {
 	return &dbUser{client: db}
 }
 
-func (d dbUser) Login(taiKhoan string) (string, error) {
+func (d dbUser) Login(taiKhoan string) (string, int, error) {
 	queryCommand := fmt.Sprintf("Select * from nguoi_dung where tai_khoan = '%s'", taiKhoan)
 	data, err := d.client.QueryOneRow(queryCommand)
 	if err != nil {
-		return "", err
+		return "", 0, err
 	}
 	var user model.User
 	for data.Next() {
 		err = data.StructScan(&user)
 		if err != nil {
-			return "", err
+			return "", 0, err
 		}
 	}
-	return user.Password, nil
+	return user.Password, user.Role, nil
 }
 
 func (d dbUser) Register(ten, taiKhoan, matKhau, sdt, email, diaChi string, status, role, chiSoTN int) error {
@@ -35,25 +35,6 @@ func (d dbUser) Register(ten, taiKhoan, matKhau, sdt, email, diaChi string, stat
 	if err != nil {
 		return err
 	}
-	//queryCommand = fmt.Sprintf("Select * from nguoi_dung where taiKhoan = '%s' or email = '%s'", taiKhoan, email)
-	//data, err := d.client.QueryOneRow(queryCommand)
-	//if err != nil {
-	//	log.Println(err.Error())
-	//}
-	//var nd model.NguoiDung
-	//defer data.Close()
-	//data.Next()
-	//{
-	//	err = data.StructScan(&nd)
-	//	if err != nil {
-	//		log.Println(err.Error())
-	//	}
-	//}
-	//queryCommand = fmt.Sprintf("Insert into role_user value('0','%d','%d')", nd.Id, nd.Role)
-	//err = d.client.Exec(queryCommand)
-	//if err != nil {
-	//	return err
-	//}
 	return nil
 }
 

@@ -38,17 +38,17 @@ func (c UserService) Register(ten, taiKhoan, matKhau, sdt, email, diaChi string,
 }
 
 func (c UserService) Login(taiKhoan, matKhau string) (string, error) {
-	passHash, err := c.UserRepo.Login(taiKhoan)
+	passHash, role, err := c.UserRepo.Login(taiKhoan)
 	if err != nil {
 		return model.EmptyString, err
 	}
 	result := checkPassword(matKhau, passHash)
-	createToken, _, err := c.token.CreateToken(taiKhoan, c.cfg.AccessTokenDuration)
+	createToken, _, err := c.token.CreateToken(taiKhoan, role, c.cfg.AccessTokenDuration)
 	if err != nil {
 		return model.EmptyString, err
 	}
-	if result {
-		fmt.Println("true")
+	if !result {
+		return model.EmptyString, fmt.Errorf("login fail")
 	}
 
 	return createToken, nil
