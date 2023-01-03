@@ -25,6 +25,7 @@ func (u UserController) SetRouterUserController(router *gin.Engine) *gin.Engine 
 	r := router.Group("/admin")
 	{
 		r.POST("/createuser", u.CreateUser)
+		r.GET("/listuser", u.ListUser)
 	}
 	return router
 }
@@ -94,6 +95,12 @@ func (u UserController) CreateUser(c *gin.Context) {
 	}
 }
 
-func (u UserController) SuaNguoiDung(c *gin.Context) {
+func (u UserController) UpdateInfo(c *gin.Context) {
+
+}
+
+func (u UserController) ListUser(c *gin.Context) {
+	cookie, err := c.Request.Cookie("cookieName")
+	value := cookie.
 
 }
