@@ -40,13 +40,13 @@ func (p ProductController) GetAllProduct(c *gin.Context) {
 			"title": err,
 		})
 	} else {
-		//c.JSONP(200, gin.H{
-		//	"list": listProduct,
-		//})
-		c.HTML(200, "index.html", gin.H{
-			"title":       "test",
+		c.JSONP(200, gin.H{
 			"listProduct": listProduct,
 		})
+		//c.HTML(200, "index.html", gin.H{
+		//	"title":       "test",
+		//	"listProduct": listProduct,
+		//})
 	}
 }
 

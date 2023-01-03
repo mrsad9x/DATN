@@ -15,7 +15,7 @@ func NewSQLProduct(db IDatabase) IProductDB {
 }
 
 func (d dbProduct) GetAllProduct() ([]model.SanPham, error) {
-	queryString := "Select * from san_pham"
+	queryString := "select sp.id, id_loaisanpham, ten_sanpham, gia_ban, gia_nhap, so_luong, mo_ta,trang_thai, a.ten_anh from san_pham sp inner join anh a on sp.id_anh = a.id"
 	data, err := d.client.Query(queryString)
 	if err != nil {
 		return nil, err
@@ -29,7 +29,7 @@ func (d dbProduct) GetAllProduct() ([]model.SanPham, error) {
 }
 
 func (d dbProduct) GetOneProduct(id int) (model.SanPham, error) {
-	queryString := fmt.Sprintf("Select * from san_pham where id='%d'", id)
+	queryString := fmt.Sprintf("select sp.id,ten_sanpham,id_loaisanpham, gia_ban, gia_nhap, so_luong, mo_ta,trang_thai, a.ten_anh from san_pham sp inner join anh a on sp.id_anh = a.id where id='%d'", id)
 	data, err := d.client.QueryOneRow(queryString)
 	var product model.SanPham
 	defer data.Close()
