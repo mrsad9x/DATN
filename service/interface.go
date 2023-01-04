@@ -5,6 +5,7 @@ import "DATN/model"
 type IUserService interface {
 	Register(ten, taiKhoan, matKhau, sdt, email, diaChi string, status, role, chiSoTN int) error
 	Login(taiKhoan, matKhau string) (string, error)
+	CheckRoles(token string) (int, error)
 }
 
 type IProductService interface {

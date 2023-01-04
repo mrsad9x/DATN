@@ -14,7 +14,7 @@ func NewSQLUser(db IDatabase) IUserDB {
 }
 
 func (d dbUser) Login(taiKhoan string) (string, int, error) {
-	queryCommand := fmt.Sprintf("Select * from nguoi_dung where tai_khoan = '%s'", taiKhoan)
+	queryCommand := fmt.Sprintf("select tai_khoan, mat_khau, role from nguoi_dung where tai_khoan = '%s'", taiKhoan)
 	data, err := d.client.QueryOneRow(queryCommand)
 	if err != nil {
 		return "", 0, err

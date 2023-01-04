@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"time"
 )
 
 type UserController struct {
@@ -42,10 +43,14 @@ func (u UserController) Login(c *gin.Context) {
 		})
 	} else {
 		c.JSONP(http.StatusOK, gin.H{
-			"token":   token,
-			"message": "login success!",
+			"user":  username,
+			"token": token,
 		})
-
+		http.SetCookie(c.Writer, &http.Cookie{
+			Name:    "token",
+			Value:   token,
+			Expires: time.Now().Add(2 * time.Minute),
+		})
 	}
 }
 
@@ -100,7 +105,15 @@ func (u UserController) UpdateInfo(c *gin.Context) {
 }
 
 func (u UserController) ListUser(c *gin.Context) {
-	cookie, err := c.Request.Cookie("cookieName")
-	value := cookie.
+	cookie, err := c.Request.Cookie("token")
+	if err != nil {
+		c.JSONP(http.StatusNetworkAuthenticationRequired, "")
+	}
+	role, err := u.UController.CheckRoles(cookie.Value)
+	if role != 1 && role != 2 {
+		c.JSONP(http.StatusUnauthorized, gin.H{
+			"role": role,
+		})
+	}
 
 }

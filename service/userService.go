@@ -18,8 +18,8 @@ type UserService struct {
 func NewUserService(repo repository.IUserDB, token token.Maker, cfg *configs.Server) IUserService {
 	return UserService{UserRepo: repo, token: token, cfg: cfg}
 }
-func (c UserService) Register(ten, taiKhoan, matKhau, sdt, email, diaChi string, status, role, chiSoTN int) error {
-	exist, check := c.UserRepo.CheckExist(taiKhoan, email)
+func (s UserService) Register(ten, taiKhoan, matKhau, sdt, email, diaChi string, status, role, chiSoTN int) error {
+	exist, check := s.UserRepo.CheckExist(taiKhoan, email)
 	if exist && check == 1 {
 		return fmt.Errorf("user name existed")
 	}
@@ -30,27 +30,28 @@ func (c UserService) Register(ten, taiKhoan, matKhau, sdt, email, diaChi string,
 	if err != nil {
 		return err
 	}
-	err = c.UserRepo.Register(ten, taiKhoan, pass, sdt, email, diaChi, status, role, chiSoTN)
+	err = s.UserRepo.Register(ten, taiKhoan, pass, sdt, email, diaChi, status, role, chiSoTN)
 	if err != nil {
 		return err
 	}
 	return nil
 }
 
-func (c UserService) Login(taiKhoan, matKhau string) (string, error) {
-	passHash, role, err := c.UserRepo.Login(taiKhoan)
+func (s UserService) Login(taiKhoan, matKhau string) (string, error) {
+	passHash, role, err := s.UserRepo.Login(taiKhoan)
 	if err != nil {
 		return model.EmptyString, err
 	}
 	result := checkPassword(matKhau, passHash)
-	createToken, _, err := c.token.CreateToken(taiKhoan, role, c.cfg.AccessTokenDuration)
-	if err != nil {
-		return model.EmptyString, err
-	}
+
 	if !result {
 		return model.EmptyString, fmt.Errorf("login fail")
 	}
 
+	createToken, _, err := s.token.CreateToken(taiKhoan, role, s.cfg.AccessTokenDuration)
+	if err != nil {
+		return model.EmptyString, err
+	}
 	return createToken, nil
 }
 
@@ -62,4 +63,13 @@ func hashPassword(matKhau string) (string, error) {
 func checkPassword(passWord, hash string) bool {
 	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(passWord))
 	return err == nil
+}
+
+func (s UserService) CheckRoles(token string) (int, error) {
+	payload, err := s.token.VerifyToken(token)
+	if err != nil {
+		fmt.Println(err)
+		return 0, err
+	}
+	return payload.RoleUser, nil
 }
