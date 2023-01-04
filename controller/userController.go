@@ -42,14 +42,14 @@ func (u UserController) Login(c *gin.Context) {
 			"messeage": "login fail",
 		})
 	} else {
-		c.JSONP(http.StatusOK, gin.H{
-			"user":  username,
-			"token": token,
-		})
 		http.SetCookie(c.Writer, &http.Cookie{
 			Name:    "token",
 			Value:   token,
 			Expires: time.Now().Add(2 * time.Minute),
+		})
+		c.JSONP(http.StatusOK, gin.H{
+			"user":  username,
+			"token": token,
 		})
 	}
 }
@@ -105,15 +105,24 @@ func (u UserController) UpdateInfo(c *gin.Context) {
 }
 
 func (u UserController) ListUser(c *gin.Context) {
-	cookie, err := c.Request.Cookie("token")
+	role, err := u.checkUser(c)
 	if err != nil {
 		c.JSONP(http.StatusNetworkAuthenticationRequired, "")
 	}
-	role, err := u.UController.CheckRoles(cookie.Value)
-	if role != 1 && role != 2 {
+	if role == 3 {
 		c.JSONP(http.StatusUnauthorized, gin.H{
 			"role": role,
 		})
+		return
 	}
+	u.UController.ShowListUer()
+}
+
+func (u UserController) checkUser(c *gin.Context) (int, error) {
+	cookie, err := c.Request.Cookie("token")
+	if err != nil {
+		return 0, err
+	}
+	return u.UController.CheckRoles(cookie.Value)
 
 }
