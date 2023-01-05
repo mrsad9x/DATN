@@ -16,6 +16,7 @@ type IUserDB interface {
 	Register(ten, taiKhoan, matKhau, sdt, email, diaChi string, status, role, chiSoTN int) error
 	Login(taiKhoan string) (string, int, error)
 	CheckExist(taiKhoan, email string) (bool, int)
+	ShowListUser() ([]model.User, error)
 }
 
 type IProductDB interface {

@@ -2,6 +2,7 @@ package repository
 
 import (
 	"DATN/model"
+	"database/sql"
 	"fmt"
 )
 
@@ -57,4 +58,41 @@ func (d dbUser) CheckExist(taiKhoan, email string) (bool, int) {
 		}
 	}
 	return false, 0
+}
+
+func (d dbUser) ShowListUser() ([]model.User, error) {
+
+	queryCommand := "select * from nguoi_dung where role=3"
+	data, err := d.client.Query(queryCommand)
+	if err != nil {
+		return nil, err
+	}
+	defer data.Close()
+	return d.parseUser(data)
+
+}
+
+func (d dbUser) parseUser(data *sql.Rows) ([]model.User, error) {
+	var nd model.User
+	var listnd []model.User
+	var id, status, role, rank int
+	var name, username, pass, phone, email, address string
+	for data.Next() {
+		err := data.Scan(&id, &name, &username, &pass, &phone, &email, &address, &status, &role, &rank)
+		if err != nil {
+			return nil, err
+		}
+		nd.Id = id
+		nd.FullName = name
+		nd.UserName = username
+		nd.Password = pass
+		nd.Phone = phone
+		nd.Email = email
+		nd.Address = address
+		nd.Status = status
+		nd.Role = role
+		nd.Rank = rank
+		listnd = append(listnd, nd)
+	}
+	return listnd, nil
 }

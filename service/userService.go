@@ -83,7 +83,6 @@ func (s UserService) CheckRoles(token string) (int, error) {
 	return payload.RoleUser, nil
 }
 
-func (s UserService) ShowListUer() []model.User {
-	listUser, err :=
-	return nil
+func (s UserService) ShowListUer() ([]model.User, error) {
+	return s.UserRepo.ShowListUser()
 }

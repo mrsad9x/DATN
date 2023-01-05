@@ -6,7 +6,7 @@ type IUserService interface {
 	Register(ten, taiKhoan, matKhau, sdt, email, diaChi string, status, role, chiSoTN int) error
 	Login(taiKhoan, matKhau string) (string, error)
 	CheckRoles(token string) (int, error)
-	ShowListUer() []model.User
+	ShowListUer() ([]model.User, error)
 }
 
 type IProductService interface {

@@ -108,6 +108,7 @@ func (u UserController) ListUser(c *gin.Context) {
 	role, err := u.checkUser(c)
 	if err != nil {
 		c.JSONP(http.StatusNetworkAuthenticationRequired, "")
+		return
 	}
 	if role == 3 {
 		c.JSONP(http.StatusUnauthorized, gin.H{
@@ -115,7 +116,16 @@ func (u UserController) ListUser(c *gin.Context) {
 		})
 		return
 	}
-	u.UController.ShowListUer()
+	listUser, err := u.UController.ShowListUer()
+	if err != nil {
+		c.JSONP(http.StatusBadRequest, gin.H{
+			"message": "get list user fail",
+		})
+		return
+	}
+	c.JSONP(http.StatusOK, gin.H{
+		"list user": listUser,
+	})
 }
 
 func (u UserController) checkUser(c *gin.Context) (int, error) {
