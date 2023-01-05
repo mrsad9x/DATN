@@ -17,6 +17,7 @@ type IUserDB interface {
 	Login(taiKhoan string) (string, int, error)
 	CheckExist(taiKhoan, email string) (bool, int)
 	ShowListUser() ([]model.User, error)
+	AlterUser(queryString string) error
 }
 
 type IProductDB interface {

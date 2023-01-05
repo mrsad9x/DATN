@@ -96,3 +96,8 @@ func (d dbUser) parseUser(data *sql.Rows) ([]model.User, error) {
 	}
 	return listnd, nil
 }
+
+func (d dbUser) AlterUser(queryString string) error {
+
+	return d.client.Exec(queryString)
+}

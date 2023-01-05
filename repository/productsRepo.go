@@ -29,7 +29,7 @@ func (d dbProduct) GetAllProduct() ([]model.SanPham, error) {
 }
 
 func (d dbProduct) GetOneProduct(id int) (model.SanPham, error) {
-	queryString := fmt.Sprintf("select sp.id,ten_sanpham,id_loaisanpham, gia_ban, gia_nhap, so_luong, mo_ta,trang_thai, a.ten_anh from san_pham sp inner join anh a on sp.id_anh = a.id where id='%d'", id)
+	queryString := fmt.Sprintf("select sp.id,ten_sanpham,id_loaisanpham, gia_ban, gia_nhap, so_luong, mo_ta,trang_thai, a.ten_anh from san_pham sp inner join anh a on sp.id_anh = a.id where sp.id='%d'", id)
 	data, err := d.client.QueryOneRow(queryString)
 	var product model.SanPham
 	defer data.Close()
@@ -44,7 +44,7 @@ func (d dbProduct) GetOneProduct(id int) (model.SanPham, error) {
 }
 
 func (d dbProduct) GetListProductWithCategories(idDanhMuc int) ([]model.SanPham, error) {
-	queryString := fmt.Sprintf("Select * from san_pham where id_DanhMucSP = '%d'", idDanhMuc)
+	queryString := fmt.Sprintf("select sp.id,ten_sanpham,id_loaisanpham, gia_ban, gia_nhap, so_luong, mo_ta,trang_thai, a.ten_anh from san_pham sp inner join anh a on sp.id_anh = a.id where id_loaisanpham = '%d'", idDanhMuc)
 	data, err := d.client.Query(queryString)
 	if err != nil {
 		return nil, err
@@ -58,7 +58,7 @@ func (d dbProduct) GetListProductWithCategories(idDanhMuc int) ([]model.SanPham,
 }
 
 func (d dbProduct) SearchProduct(name string) ([]model.SanPham, error) {
-	queryString := fmt.Sprintf("Select * from san_pham where tenSP like '%s%s%s'", "%", name, "%")
+	queryString := fmt.Sprintf("select sp.id,ten_sanpham,id_loaisanpham, gia_ban, gia_nhap, so_luong, mo_ta,trang_thai, a.ten_anh from san_pham sp inner join anh a on sp.id_anh = a.id where tenSP like '%s%s%s'", "%", name, "%")
 	data, err := d.client.Query(queryString)
 	if err != nil {
 		return nil, err
@@ -96,7 +96,7 @@ func ParseDataProduct(data *sql.Rows) ([]model.SanPham, error) {
 	var tensp, mota, pathImg string
 
 	for data.Next() {
-		err := data.Scan(&id, &idDanhmuc, &tensp, &giaBan, &giaNhap, &soLuong, &mota, &status, &pathImg)
+		err := data.Scan(&id, &tensp, &idDanhmuc, &giaBan, &giaNhap, &soLuong, &mota, &status, &pathImg)
 		if err != nil {
 			return nil, err
 		}

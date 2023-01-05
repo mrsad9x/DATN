@@ -4,7 +4,6 @@ import (
 	"DATN/service"
 	"github.com/gin-gonic/gin"
 	"log"
-	"strconv"
 )
 
 type ProductController struct {
@@ -51,8 +50,8 @@ func (p ProductController) GetAllProduct(c *gin.Context) {
 }
 
 func (p ProductController) GetOneProduct(c *gin.Context) {
-	id, _ := strconv.Atoi(c.Param("id"))
-	product, err := p.pController.GetOneProduct(id)
+
+	product, err := p.pController.GetOneProduct(c)
 	if err != nil {
 		log.Println(err.Error())
 	}
@@ -63,8 +62,7 @@ func (p ProductController) GetOneProduct(c *gin.Context) {
 }
 
 func (p ProductController) GetListProduct(c *gin.Context) {
-	idDanhMuc, _ := strconv.Atoi(c.Param("id"))
-	listProduct, err := p.pController.GetListProductWithCategories(idDanhMuc)
+	listProduct, err := p.pController.GetListProductWithCategories(c)
 	if err != nil {
 		c.JSONP(400, gin.H{
 			"error": err,
@@ -77,8 +75,8 @@ func (p ProductController) GetListProduct(c *gin.Context) {
 }
 
 func (p ProductController) SearchProduct(c *gin.Context) {
-	nameSearch := c.Param("name")
-	listProduct, err := p.pController.SearchProduct(nameSearch)
+
+	listProduct, err := p.pController.SearchProduct(c)
 	if err != nil {
 		c.JSONP(400, gin.H{
 			"error": err,
@@ -91,14 +89,7 @@ func (p ProductController) SearchProduct(c *gin.Context) {
 }
 
 func (p ProductController) CreateNewProduct(c *gin.Context) {
-	idDanhMuc, _ := strconv.Atoi(c.PostForm("idDM"))
-	tenSP := c.PostForm("tensp")
-	giaBan, _ := strconv.ParseFloat(c.PostForm("giaban"), 64)
-	giaNhap, _ := strconv.ParseFloat(c.PostForm("gianhap"), 64)
-	soluong, _ := strconv.Atoi(c.PostForm("soluong"))
-	mota := c.PostForm("mota")
-	status := 1
-	err := p.pController.CreateNewProduct(idDanhMuc, tenSP, giaBan, giaNhap, soluong, mota, status)
+	err := p.pController.CreateNewProduct(c)
 	if err != nil {
 		c.JSONP(400, gin.H{
 			"err": err,
@@ -111,15 +102,7 @@ func (p ProductController) CreateNewProduct(c *gin.Context) {
 }
 
 func (p ProductController) AlterProduct(c *gin.Context) {
-	id, _ := strconv.Atoi(c.PostForm("id"))
-	idDanhMuc, _ := strconv.Atoi(c.PostForm("idDM"))
-	tenSP := c.PostForm("tensp")
-	giaBan, _ := strconv.ParseFloat(c.PostForm("giaban"), 64)
-	giaNhap, _ := strconv.ParseFloat(c.PostForm("gianhap"), 64)
-	soluong, _ := strconv.Atoi(c.PostForm("soluong"))
-	mota := c.PostForm("mota")
-
-	err := p.pController.AlterProduct(id, idDanhMuc, tenSP, giaBan, giaNhap, soluong, mota)
+	err := p.pController.AlterProduct(c)
 	if err != nil {
 		c.JSONP(400, gin.H{
 			"err": err,
@@ -132,8 +115,7 @@ func (p ProductController) AlterProduct(c *gin.Context) {
 }
 
 func (p ProductController) DeleteSoftProduct(c *gin.Context) {
-	id, _ := strconv.Atoi(c.PostForm("id"))
-	err := p.pController.DeleteSoftProduct(id)
+	err := p.pController.DeleteSoftProduct(c)
 	if err != nil {
 		c.JSONP(400, gin.H{
 			"err": err,
