@@ -3,7 +3,9 @@ package service
 import (
 	"DATN/model"
 	"DATN/repository"
+	"fmt"
 	"github.com/gin-gonic/gin"
+	"net/http"
 	"strconv"
 )
 
@@ -35,12 +37,21 @@ func (p ProductService) SearchProduct(c *gin.Context) ([]model.SanPham, error) {
 }
 
 func (p ProductService) CreateNewProduct(c *gin.Context) error {
+	c.Request.Body = http.MaxBytesReader(c.Writer, c.Request.Body, 10*1024*1024)
 	idDanhMuc, _ := strconv.Atoi(c.PostForm("idDM"))
 	tenSP := c.PostForm("tensp")
 	giaBan, _ := strconv.ParseFloat(c.PostForm("giaban"), 64)
 	giaNhap, _ := strconv.ParseFloat(c.PostForm("gianhap"), 64)
 	soluong, _ := strconv.Atoi(c.PostForm("soluong"))
 	mota := c.PostForm("mota")
+	imgRaw, err := c.FormFile("anh")
+	if err != nil {
+		return err
+	}
+
+	imgName := imgRaw.Filename
+
+	fmt.Println(imgRaw)
 	status := 1
 	return p.proService.CreateNewProduct(idDanhMuc, tenSP, giaBan, giaNhap, soluong, mota, status)
 }

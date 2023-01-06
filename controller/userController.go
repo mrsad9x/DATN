@@ -41,6 +41,7 @@ func (u UserController) Login(c *gin.Context) {
 			"messeage": "login fail",
 		})
 	} else {
+
 		http.SetCookie(c.Writer, &http.Cookie{
 			Name:    "token",
 			Value:   token,

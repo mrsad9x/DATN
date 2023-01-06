@@ -24,8 +24,11 @@ func (h HomeController) Home(c *gin.Context) {
 	listPro, err := h.hController.Home()
 	if err != nil {
 	} else {
-		c.HTML(http.StatusOK, "index.html", gin.H{
-			"listProduct": listPro,
+		//c.HTML(http.StatusOK, "index.html", gin.H{
+		//	"listProduct": listPro,
+		//})
+		c.JSONP(http.StatusOK, gin.H{
+			"listProHot": listPro,
 		})
 	}
 
