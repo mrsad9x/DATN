@@ -88,7 +88,7 @@ func (u UserController) UpdateInfo(c *gin.Context) {
 }
 
 func (u UserController) ListUser(c *gin.Context) {
-	role, err := u.checkUser(c)
+	role, err := u.CheckUser(c)
 	if err != nil {
 		c.JSONP(http.StatusNetworkAuthenticationRequired, "")
 		return
@@ -111,7 +111,7 @@ func (u UserController) ListUser(c *gin.Context) {
 	})
 }
 
-func (u UserController) checkUser(c *gin.Context) (int, error) {
+func (u UserController) CheckUser(c *gin.Context) (int, error) {
 	cookie, err := c.Request.Cookie("token")
 	if err != nil {
 		return 0, err

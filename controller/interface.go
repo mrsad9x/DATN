@@ -4,6 +4,7 @@ import "github.com/gin-gonic/gin"
 
 type IUserController interface {
 	SetRouterUserController(router *gin.Engine) *gin.Engine
+	CheckUser(c *gin.Context) (int, error)
 }
 
 type IProductController interface {

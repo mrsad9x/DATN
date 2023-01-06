@@ -4,15 +4,18 @@ import (
 	"DATN/service"
 	"github.com/gin-gonic/gin"
 	"log"
+	"net/http"
 )
 
 type ProductController struct {
 	pController service.IProductService
+	uController IUserController
 }
 
-func NewProductController(productController service.IProductService) IProductController {
+func NewProductController(productController service.IProductService, userController IUserController) IProductController {
 	return ProductController{
 		pController: productController,
+		uController: userController,
 	}
 }
 
@@ -89,7 +92,18 @@ func (p ProductController) SearchProduct(c *gin.Context) {
 }
 
 func (p ProductController) CreateNewProduct(c *gin.Context) {
-	err := p.pController.CreateNewProduct(c)
+	token, err := p.uController.CheckUser(c)
+	if err != nil {
+		c.JSONP(http.StatusUnauthorized, "")
+		return
+	}
+	if token != 1 && token != 2 {
+		c.JSONP(http.StatusUnauthorized, gin.H{
+			"token": token,
+		})
+		return
+	}
+	err = p.pController.CreateNewProduct(c)
 	if err != nil {
 		c.JSONP(400, gin.H{
 			"err": err,

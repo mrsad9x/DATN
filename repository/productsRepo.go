@@ -4,6 +4,7 @@ import (
 	"DATN/model"
 	"database/sql"
 	"fmt"
+	"strings"
 )
 
 type dbProduct struct {
@@ -73,13 +74,33 @@ func (d dbProduct) SearchProduct(name string) ([]model.SanPham, error) {
 	return products, nil
 }
 
-func (d dbProduct) CreateNewProduct(idDM int, tenSP string, giaBan, giaNhap float64, soLuong int, mota string, status int) error {
-	queryString := fmt.Sprintf("Insert into san_pham value ('0',%d,'%s',%.2f,%.2f,%d,'%s',%d)", idDM, tenSP, giaBan, giaNhap, soLuong, mota, status)
-	return d.client.Exec(queryString)
+func (d dbProduct) CreateNewProduct(idDM int, tenSP string, giaBan, giaNhap float64, soLuong int, mota string, status int, imgName string) error {
+	queryStringSearchImgName := fmt.Sprintf("Select count(*) from anh where ten_anh='%s'", imgName)
+	data, err := d.client.QueryOneRow(queryStringSearchImgName)
+	if err != nil {
+		return err
+	}
+	quantity := GetIntFromDataQuery(data)
+	if quantity != 0 {
+		imgName = strings.Replace(imgName, ".", "(1).", 1)
+	}
+	queryStringInsertToImageDB := fmt.Sprintf("Insert into anh value('0','%s')", imgName)
+	err = d.client.Exec(queryStringInsertToImageDB)
+	if err != nil {
+		return err
+	}
+	queryStringGetId := fmt.Sprintf("select id from anh where ten_anh='%s'", imgName)
+	dataId, err := d.client.QueryOneRow(queryStringGetId)
+	if err != nil {
+		return err
+	}
+	idImg := GetIntFromDataQuery(dataId)
+
+	queryStringInsertToProductDB := fmt.Sprintf("Insert into san_pham value ('0',%d,'%s','%d',%.2f,%.2f,%d,'%s',%d)", idDM, tenSP, idImg, giaBan, giaNhap, soLuong, mota, status)
+	return d.client.Exec(queryStringInsertToProductDB)
 }
 
-func (d dbProduct) AlterProduct(id, idDM int, tenSP string, giaBan, giaNhap float64, soLuong int, mota string) error {
-	queryString := fmt.Sprintf("Update san_pham set id_danhMucSP = %d, tenSP = '%s', giaBan = %.2f, giaNhap = %.2f, soLuong = %d, moTaSP = '%s' where id = %d", idDM, tenSP, giaBan, giaNhap, soLuong, mota, id)
+func (d dbProduct) AlterProduct(queryString string) error {
 	return d.client.Exec(queryString)
 }
 

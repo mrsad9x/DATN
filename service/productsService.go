@@ -5,8 +5,10 @@ import (
 	"DATN/repository"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"io/ioutil"
 	"net/http"
 	"strconv"
+	"strings"
 )
 
 type ProductService struct {
@@ -44,27 +46,93 @@ func (p ProductService) CreateNewProduct(c *gin.Context) error {
 	giaNhap, _ := strconv.ParseFloat(c.PostForm("gianhap"), 64)
 	soluong, _ := strconv.Atoi(c.PostForm("soluong"))
 	mota := c.PostForm("mota")
-	imgRaw, err := c.FormFile("anh")
+	imgRaw, handler, err := c.Request.FormFile("anh")
 	if err != nil {
 		return err
 	}
+	imgName := strings.Split(handler.Filename, ".")[0]
+	fileType := strings.Split(handler.Header.Get("Content-Type"), "/")[1]
+	imgName = fmt.Sprintf("%s.%s", imgName, fileType)
+	tempFile, err := ioutil.TempFile("imgtemp", imgName)
+	if err != nil {
+		return err
+	}
+	defer tempFile.Close()
+	fileBytes, err := ioutil.ReadAll(imgRaw)
+	if err != nil {
+		fmt.Println(err)
+	}
 
-	imgName := imgRaw.Filename
-
-	fmt.Println(imgRaw)
+	tempFile.Write(fileBytes)
 	status := 1
-	return p.proService.CreateNewProduct(idDanhMuc, tenSP, giaBan, giaNhap, soluong, mota, status)
+	return p.proService.CreateNewProduct(idDanhMuc, tenSP, giaBan, giaNhap, soluong, mota, status, imgName)
 }
 
 func (p ProductService) AlterProduct(c *gin.Context) error {
+
+	queryString := "update san_pham set "
+	i := 0
 	id, _ := strconv.Atoi(c.PostForm("id"))
-	idDanhMuc, _ := strconv.Atoi(c.PostForm("idDM"))
+	idDanhMuc := c.PostForm("idDM")
+	if idDanhMuc != model.EmptyString {
+		idDanhMucQr, _ := strconv.Atoi(idDanhMuc)
+		i++
+		if i > 1 {
+			queryString = queryString + ", "
+			i--
+		}
+		queryString = queryString + fmt.Sprintf("id_loaisanpham='%d'", idDanhMucQr)
+	}
 	tenSP := c.PostForm("tensp")
-	giaBan, _ := strconv.ParseFloat(c.PostForm("giaban"), 64)
-	giaNhap, _ := strconv.ParseFloat(c.PostForm("gianhap"), 64)
-	soluong, _ := strconv.Atoi(c.PostForm("soluong"))
+	if tenSP != model.EmptyString {
+		i++
+		if i > 1 {
+			queryString = queryString + ", "
+			i--
+		}
+		queryString = queryString + fmt.Sprintf("ten_sanpham='%s'", tenSP)
+	}
+	giaBan := c.PostForm("giaban")
+	if giaBan != model.EmptyString {
+		i++
+		if i > 1 {
+			queryString = queryString + ", "
+			i--
+		}
+		giaBanQr, _ := strconv.ParseFloat(giaBan, 64)
+		queryString = queryString + fmt.Sprintf("gia_ban='%.2f'", giaBanQr)
+	}
+	giaNhap := c.PostForm("gianhap")
+	if giaNhap != model.EmptyString {
+		i++
+		if i > 1 {
+			queryString = queryString + ", "
+			i--
+		}
+		giaNhapQr, _ := strconv.ParseFloat(giaNhap, 64)
+		queryString = queryString + fmt.Sprintf("gia_nhap='%.2f'", giaNhapQr)
+	}
+	soluong := c.PostForm("soluong")
+	if soluong != model.EmptyString {
+		i++
+		if i > 1 {
+			queryString = queryString + ", "
+			i--
+		}
+		soluongQr, _ := strconv.Atoi(soluong)
+		queryString = queryString + fmt.Sprintf("so_luong='%d'", soluongQr)
+	}
 	mota := c.PostForm("mota")
-	return p.proService.AlterProduct(id, idDanhMuc, tenSP, giaBan, giaNhap, soluong, mota)
+	if mota != model.EmptyString {
+		i++
+		if i > 1 {
+			queryString = queryString + ", "
+			i--
+		}
+		queryString = queryString + fmt.Sprintf("mo_ta='%s'", mota)
+	}
+	queryString = queryString + fmt.Sprintf(" where id='%d'", id)
+	return p.proService.AlterProduct(queryString)
 }
 
 func (p ProductService) DeleteSoftProduct(c *gin.Context) error {

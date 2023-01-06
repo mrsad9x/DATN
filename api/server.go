@@ -47,7 +47,7 @@ func (s *Server) Start() error {
 
 	prodRepo := repository.NewSQLProduct(db)
 	prodService := service.NewProducService(prodRepo)
-	prodController := controller.NewProductController(prodService)
+	prodController := controller.NewProductController(prodService, userController)
 	prodController.SetRouterSanPhamController(s.route)
 
 	homeRepo := repository.NewSQLHome(db)

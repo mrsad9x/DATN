@@ -25,8 +25,8 @@ type IProductDB interface {
 	GetOneProduct(id int) (model.SanPham, error)
 	GetListProductWithCategories(id int) ([]model.SanPham, error)
 	SearchProduct(name string) ([]model.SanPham, error)
-	CreateNewProduct(idDM int, tenSP string, giaBan, giaNhap float64, soLuong int, mota string, status int) error
-	AlterProduct(id, idDM int, tenSP string, giaBan, giaNhap float64, soLuong int, mota string) error
+	CreateNewProduct(idDM int, tenSP string, giaBan, giaNhap float64, soLuong int, mota string, status int, imgName string) error
+	AlterProduct(queryString string) error
 	DeleteSoftProduct(id, status int) error
 }
 
