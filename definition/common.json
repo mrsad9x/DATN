@@ -11,8 +11,8 @@
     "ACCESS_TOKEN_DURATION": "15m"
   },
   "AccessKeyAWS": {
-    "ID_KEY": "AKIA5GJQSFSDXODHOD64",
-    "SECRET_KEY": "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",
+    "ID_KEY": "",
+    "SECRET_KEY": "",
     "AWS_REGION": "ap-southeast-1",
     "AWS_BUCKET": "da-bucket-s3"
   }
