@@ -1,10 +1,13 @@
 package configs
 
-import "github.com/spf13/viper"
+import (
+	"github.com/spf13/viper"
+)
 
 type Server struct {
-	Database `mapstructure:"Database"`
-	Token    `mapstructure:"Token"`
+	Database     `mapstructure:"Database"`
+	Token        `mapstructure:"Token"`
+	AccessKeyAWS `mapstructure:"AccessKeyAWS"`
 }
 
 func Init(path, fileName string) (*Server, error) {
@@ -22,4 +25,11 @@ func Init(path, fileName string) (*Server, error) {
 		return nil, err
 	}
 	return cfg, nil
+}
+
+type AccessKeyAWS struct {
+	Id     string `mapstructure:"ID_Key"`
+	Secret string `mapstructure:"SECRET_KEY"`
+	Region string `mapstructure:"AWS_REGION"`
+	Bucket string `mapstructure:"AWS_BUCKET"`
 }

@@ -1,13 +1,19 @@
 {
   "Database": {
-    "DB_PORT": 3306,
+    "DB_PORT": 3305,
     "DB_NAME": "da_real",
     "DB_USER": "root",
-    "DB_PASSWORD": "123456123",
+    "DB_PASSWORD": "123456",
     "DB_DRIVER_NAME": "mysql"
   },
   "Token": {
     "TOKEN_SYMMETRIC_KEY": 12345678901234567890123456789012,
     "ACCESS_TOKEN_DURATION": "15m"
+  },
+  "AccessKeyAWS": {
+    "ID_KEY": "AKIA5GJQSFSDXODHOD64",
+    "SECRET_KEY": "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",
+    "AWS_REGION": "ap-southeast-1",
+    "AWS_BUCKET": "da-bucket-s3"
   }
 }

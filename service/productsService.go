@@ -3,20 +3,23 @@ package service
 import (
 	"DATN/model"
 	"DATN/repository"
+	"DATN/repository/s3"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 )
 
 type ProductService struct {
 	proService repository.IProductDB
+	upload     s3.IS3Repo
 }
 
-func NewProducService(repo repository.IProductDB) IProductService {
-	return ProductService{proService: repo}
+func NewProducService(repo repository.IProductDB, s3store *s3.IS3Repo) IProductService {
+	return ProductService{proService: repo, upload: *s3store}
 }
 
 func (p ProductService) GetAllProduct() ([]model.SanPham, error) {
@@ -53,19 +56,34 @@ func (p ProductService) CreateNewProduct(c *gin.Context) error {
 	imgName := strings.Split(handler.Filename, ".")[0]
 	fileType := strings.Split(handler.Header.Get("Content-Type"), "/")[1]
 	imgName = fmt.Sprintf("%s.%s", imgName, fileType)
-	tempFile, err := ioutil.TempFile("imgtemp", imgName)
+	tempFile, err := os.Create("temp-img/" + imgName)
 	if err != nil {
 		return err
 	}
-	defer tempFile.Close()
+
 	fileBytes, err := ioutil.ReadAll(imgRaw)
 	if err != nil {
 		fmt.Println(err)
 	}
 
 	tempFile.Write(fileBytes)
+	tempFile.Close()
 	status := 1
-	return p.proService.CreateNewProduct(idDanhMuc, tenSP, giaBan, giaNhap, soluong, mota, status, imgName)
+	err = p.proService.CreateNewProduct(idDanhMuc, tenSP, giaBan, giaNhap, soluong, mota, status, imgName)
+	if err != nil {
+		return err
+	}
+	fileUpload, err := os.Open(fmt.Sprintf("temp-img/%s", imgName))
+
+	pathS3 := "image/" + imgName
+	err = p.upload.PutObject(pathS3, fileUpload)
+	fileUpload.Close()
+	err = os.Remove(fmt.Sprintf("temp-img/%s", imgName))
+	if err != nil {
+		fmt.Println(err)
+		return err
+	}
+	return nil
 }
 
 func (p ProductService) AlterProduct(c *gin.Context) error {

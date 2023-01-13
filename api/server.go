@@ -4,6 +4,7 @@ import (
 	"DATN/configs"
 	"DATN/controller"
 	"DATN/repository"
+	"DATN/repository/s3"
 	"DATN/service"
 	"DATN/token"
 	"fmt"
@@ -16,9 +17,10 @@ type Server struct {
 	cfg        *configs.Server
 	route      *gin.Engine
 	tokenMaker token.Maker
+	s3Store    *s3.IS3Repo
 }
 
-func New(cfg *configs.Server) (*Server, error) {
+func New(cfg *configs.Server, s3Store *s3.IS3Repo) (*Server, error) {
 	tokenMaker, err := token.NewJWTMaker(cfg.TokenSymmetricKey)
 	if err != nil {
 		return nil, fmt.Errorf("can not create token maker: %w", err)
@@ -27,6 +29,7 @@ func New(cfg *configs.Server) (*Server, error) {
 		cfg:        cfg,
 		route:      gin.Default(),
 		tokenMaker: tokenMaker,
+		s3Store:    s3Store,
 	}, nil
 }
 
@@ -46,7 +49,7 @@ func (s *Server) Start() error {
 	userController.SetRouterUserController(s.route)
 
 	prodRepo := repository.NewSQLProduct(db)
-	prodService := service.NewProducService(prodRepo)
+	prodService := service.NewProducService(prodRepo, s.s3Store)
 	prodController := controller.NewProductController(prodService, userController)
 	prodController.SetRouterSanPhamController(s.route)
 

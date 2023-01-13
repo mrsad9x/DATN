@@ -45,7 +45,7 @@ func (u UserController) Login(c *gin.Context) {
 		http.SetCookie(c.Writer, &http.Cookie{
 			Name:    "token",
 			Value:   token,
-			Expires: time.Now().Add(2 * time.Minute),
+			Expires: time.Now().Add(5 * time.Minute),
 		})
 		c.JSONP(http.StatusOK, gin.H{
 			"message": "login success",

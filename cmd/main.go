@@ -3,6 +3,7 @@ package main
 import (
 	"DATN/api"
 	"DATN/configs"
+	"DATN/repository/s3"
 	"log"
 )
 
@@ -12,7 +13,8 @@ func main() {
 		log.Print(err.Error())
 		return
 	}
-	server, err := api.New(cfg)
+	s3Store, err := s3.NewS3Repo(cfg)
+	server, err := api.New(cfg, &s3Store)
 	if err != nil {
 		log.Println(err.Error())
 		return
