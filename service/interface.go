@@ -38,4 +38,7 @@ type IOrderService interface {
 }
 
 type IPromotionService interface {
+	CreatePromotion(c *gin.Context) error
+	AlterPromotion(c *gin.Context) error
+	DeletePromotion(c *gin.Context) error
 }

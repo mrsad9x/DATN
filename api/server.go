@@ -58,6 +58,11 @@ func (s *Server) Start() error {
 	homeController := controller.NewHomeController(homeService)
 	homeController.SetRouterHomeController(s.route)
 
+	promotionRepo := repository.NewSQLPromotion(db)
+	promotionService := service.NewPromotionService(promotionRepo)
+	promotionController := controller.NewPromotionController(promotionService, userController)
+	promotionController.SetRouterPromotionController(s.route)
+
 	s.route.Static("/static", "./templates/static")
 	s.route.LoadHTMLGlob("templates/*.*")
 

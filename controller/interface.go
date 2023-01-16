@@ -25,4 +25,5 @@ type IOrderController interface {
 }
 
 type IPromotionController interface {
+	SetRouterPromotionController(router *gin.Engine) *gin.Engine
 }

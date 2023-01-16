@@ -44,4 +44,5 @@ type IOrderDB interface {
 }
 
 type IPromotionDB interface {
+	CreatePromotion(maGG, timeCreate, mota string, dayApply, percentApp, rankApp int) error
 }
