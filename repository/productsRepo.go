@@ -122,12 +122,12 @@ func ParseDataProduct(data *sql.Rows) ([]model.SanPham, error) {
 			return nil, err
 		}
 		product.Id = id
-		product.IdDanhMucSP = idDanhmuc
-		product.TenSP = tensp
-		product.GiaBan = giaBan
-		product.GiaNhap = giaNhap
-		product.SoLuong = soLuong
-		product.MoTaSP = mota
+		product.IdCategories = idDanhmuc
+		product.ProdName = tensp
+		product.Price = giaBan
+		product.ImportPrice = giaNhap
+		product.Quantity = soLuong
+		product.Description = mota
 		product.Status = status
 		product.PathImg = "static/image/" + pathImg
 

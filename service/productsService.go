@@ -6,7 +6,7 @@ import (
 	"DATN/repository/s3"
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"os"
 	"strconv"
@@ -61,7 +61,7 @@ func (p ProductService) CreateNewProduct(c *gin.Context) error {
 		return err
 	}
 
-	fileBytes, err := ioutil.ReadAll(imgRaw)
+	fileBytes, err := io.ReadAll(imgRaw)
 	if err != nil {
 		fmt.Println(err)
 	}
