@@ -16,7 +16,7 @@ func NewSQLProduct(db IDatabase) IProductDB {
 }
 
 func (d dbProduct) GetAllProduct() ([]model.SanPham, error) {
-	queryString := "select sp.id, id_loaisanpham, ten_sanpham, gia_ban, gia_nhap, so_luong, mo_ta,trang_thai, a.ten_anh from san_pham sp inner join anh a on sp.id_anh = a.id"
+	queryString := "select sp.id, id_loaisanpham, ten_sanpham, gia_ban, gia_nhap, so_luong, mo_ta,trang_thai, a.ten_anh from san_pham sp inner join anh a on sp.id = a.id_sp"
 	data, err := d.client.Query(queryString)
 	if err != nil {
 		return nil, err
@@ -30,7 +30,7 @@ func (d dbProduct) GetAllProduct() ([]model.SanPham, error) {
 }
 
 func (d dbProduct) GetOneProduct(id int) (model.SanPham, error) {
-	queryString := fmt.Sprintf("select sp.id,ten_sanpham,id_loaisanpham, gia_ban, gia_nhap, so_luong, mo_ta,trang_thai, a.ten_anh from san_pham sp inner join anh a on sp.id_anh = a.id where sp.id='%d'", id)
+	queryString := fmt.Sprintf("select sp.id,ten_sanpham,id_loaisanpham, gia_ban, gia_nhap, so_luong, mo_ta,trang_thai, a.ten_anh from san_pham sp inner join anh a on sp.id = a.id_sp where sp.id='%d'", id)
 	data, err := d.client.QueryOneRow(queryString)
 	var product model.SanPham
 	defer data.Close()
@@ -45,7 +45,7 @@ func (d dbProduct) GetOneProduct(id int) (model.SanPham, error) {
 }
 
 func (d dbProduct) GetListProductWithCategories(idDanhMuc int) ([]model.SanPham, error) {
-	queryString := fmt.Sprintf("select sp.id,ten_sanpham,id_loaisanpham, gia_ban, gia_nhap, so_luong, mo_ta,trang_thai, a.ten_anh from san_pham sp inner join anh a on sp.id_anh = a.id where id_loaisanpham = '%d'", idDanhMuc)
+	queryString := fmt.Sprintf("select sp.id,ten_sanpham,id_loaisanpham, gia_ban, gia_nhap, so_luong, mo_ta,trang_thai, a.ten_anh from san_pham sp inner join anh a on sp.id = a.id_sp where id_loaisanpham = '%d'", idDanhMuc)
 	data, err := d.client.Query(queryString)
 	if err != nil {
 		return nil, err
@@ -59,7 +59,7 @@ func (d dbProduct) GetListProductWithCategories(idDanhMuc int) ([]model.SanPham,
 }
 
 func (d dbProduct) SearchProduct(name string) ([]model.SanPham, error) {
-	queryString := fmt.Sprintf("select sp.id,ten_sanpham,id_loaisanpham, gia_ban, gia_nhap, so_luong, mo_ta,trang_thai, a.ten_anh from san_pham sp inner join anh a on sp.id_anh = a.id where tenSP like '%s%s%s'", "%", name, "%")
+	queryString := fmt.Sprintf("select sp.id,ten_sanpham,id_loaisanpham, gia_ban, gia_nhap, so_luong, mo_ta,trang_thai, a.ten_anh from san_pham sp inner join anh a on sp.id = a.id_sp where ten_sanpham like '%s%s%s'", "%", name, "%")
 	data, err := d.client.Query(queryString)
 	if err != nil {
 		return nil, err
@@ -75,6 +75,7 @@ func (d dbProduct) SearchProduct(name string) ([]model.SanPham, error) {
 }
 
 func (d dbProduct) CreateNewProduct(idDM int, tenSP string, giaBan, giaNhap float64, soLuong int, mota string, status int, imgName string) error {
+	// check imgName existed
 	queryStringSearchImgName := fmt.Sprintf("Select count(*) from anh where ten_anh='%s'", imgName)
 	data, err := d.client.QueryOneRow(queryStringSearchImgName)
 	if err != nil {
@@ -84,20 +85,38 @@ func (d dbProduct) CreateNewProduct(idDM int, tenSP string, giaBan, giaNhap floa
 	if quantity != 0 {
 		imgName = strings.Replace(imgName, ".", "(1).", 1)
 	}
-	queryStringInsertToImageDB := fmt.Sprintf("Insert into anh value('0','%s')", imgName)
+	//queryStringInsertToImageDB := fmt.Sprintf("Insert into anh value('0','%s')", imgName)
+	//err = d.client.Exec(queryStringInsertToImageDB)
+	//if err != nil {
+	//	return err
+	//}
+	//queryStringGetId := fmt.Sprintf("select id from anh where ten_anh='%s'", imgName)
+	//dataId, err := d.client.QueryOneRow(queryStringGetId)
+	//if err != nil {
+	//	return err
+	//}
+	//idImg := GetIntFromDataQuery(dataId)
+	// insert data to table product
+	queryStringInsertToProductDB := fmt.Sprintf("Insert into san_pham value ('0',%d,'%s',%.2f,%.2f,%d,'%s',%d)", idDM, tenSP, giaBan, giaNhap, soLuong, mota, status)
+	err = d.client.Exec(queryStringInsertToProductDB)
+	if err != nil {
+		return err
+	}
+	// get index newest of product
+	queryStringGetNewestProd := fmt.Sprintf("Select count(*) from san_pham")
+	dataPro, err := d.client.QueryOneRow(queryStringGetNewestProd)
+	if err != nil {
+		return err
+	}
+	idProdNewest := GetIntFromDataQuery(dataPro)
+
+	// insert data to table image
+	queryStringInsertToImageDB := fmt.Sprintf("Insert into anh value('0','%d','%s')", idProdNewest, imgName)
 	err = d.client.Exec(queryStringInsertToImageDB)
 	if err != nil {
 		return err
 	}
-	queryStringGetId := fmt.Sprintf("select id from anh where ten_anh='%s'", imgName)
-	dataId, err := d.client.QueryOneRow(queryStringGetId)
-	if err != nil {
-		return err
-	}
-	idImg := GetIntFromDataQuery(dataId)
-
-	queryStringInsertToProductDB := fmt.Sprintf("Insert into san_pham value ('0',%d,'%s','%d',%.2f,%.2f,%d,'%s',%d)", idDM, tenSP, idImg, giaBan, giaNhap, soLuong, mota, status)
-	return d.client.Exec(queryStringInsertToProductDB)
+	return nil
 }
 
 func (d dbProduct) AlterProduct(queryString string) error {
